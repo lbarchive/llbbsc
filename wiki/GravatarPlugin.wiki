@@ -1,5 +1,5 @@
 #summary Gravatar bbPress Plugin
-#labels Featured
+#labels Featured,P-Gravatar
 
 =Introduction=
 
