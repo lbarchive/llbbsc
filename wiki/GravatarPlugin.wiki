@@ -3,7 +3,12 @@
 
 = Introduction =
 
-A simple plugin for Gravatar
+A simple plugin for Gravatar.
+
+== Demonstration ==
+
+  * [http://www.livibetter.com/it/profile/livibetter Profile Page]
+  * [http://www.livibetter.com/it/topic/create-views?replies=1 Topic Page]
 
 = Installation =
 
