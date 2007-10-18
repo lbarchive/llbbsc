@@ -1,13 +1,25 @@
 #summary Changing bbPress Role Display Name
 #labels Featured,P-RoleDisplayName
 
-= Introduction =
+=Introduction=
 
-Quick and simply way to change roles' display names.
+Quick and simple way to change roles' display names.
 
-= Installation =
+_Please also read *[http://code.google.com/p/llbbsc/ this page]*_
 
-  * Modify the display names.
+=Download=
+
+==Quick way==
+
+Download [http://llbbsc.googlecode.com/svn/trunk/bbPress/RoleDisplayName/role-display-name.php role-display-name.php] only.
+
+==Subversion way==
+
+Run `svn checkout http://llbbsc.googlecode.com/svn/trunk/bbPress/RoleDisplayName/ RoleDisplayName`
+
+=Installation=
+
+  * Modify the display names in `role-display-name.php`.
   * Upload it to `my-plugins`.
   * Activate it.
-  * Done
+  * Done.
