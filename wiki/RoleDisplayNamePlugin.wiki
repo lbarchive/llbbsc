@@ -1,0 +1,13 @@
+#summary Changing bbPress Role Display Name
+#labels Featured,P-RoleDisplayName
+
+= Introduction =
+
+Quick and simply way to change roles' display names.
+
+= Installation =
+
+  * Modify the display names.
+  * Upload it to `my-plugins`.
+  * Activate it.
+  * Done
