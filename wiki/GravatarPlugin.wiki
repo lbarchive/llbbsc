@@ -12,6 +12,7 @@ A simple plugin for Gravatar.
 
 ==Features==
 
+  * Email Verification - Users need to own the Gravatar Emails which they input.
   * Support Default Image
   * Size customized (1..80px)
   * Option page (NOT YET IMPLEMENTED)
@@ -80,6 +81,8 @@ This plug-in search and use the image in the following order:
 
 Go checking your profile page, and edit it. There should be an additional field called *Gravatar Email*. This plug-in use this field to display Gravatar's avatar not user's registered email. *Gravatar Email* will only be shown to whom has privilege to edit the user's profile. That means only Key Master, Administrator can see others' Gravatar Email.
 
+Once you save your new *Gravatar Email*, there should be a new *Verification Code* notification mail in your mailbox. Input the 8-letter code into your profile editing page. After you save your profile with the *Verification Code*, you should see your Gravatar avatar in you profile page immediately.
+
 ==Functions==
 
 ===`GAGetImageURI`===
@@ -89,9 +92,21 @@ Returns `src` for `<img>` tag.
   * `$id=0` - User ID
   * `$size=64` - The size (px) of avatar. Currently, it is up to 80px.
 
+Sample Result:
+
+{{{
+http://www.gravatar.com/avatar.php?gravatar_id=9c8425c85f81798109d48e30fb1d28e4&amp;default=http%3A%2F%2Fwww.livibetter.com%2Fit%2Fmy-plugins%2Fgravatar-default.png&amp;size=64
+}}}
+
 ===`GAImageURI`===
 
 The `echo` version of `GAGetImageURI`
+
+Sample Result:
+
+{{{
+http://www.gravatar.com/avatar.php?gravatar_id=9c8425c85f81798109d48e30fb1d28e4&amp;default=http%3A%2F%2Fwww.livibetter.com%2Fit%2Fmy-plugins%2Fgravatar-default.png&amp;size=64
+}}}
 
 ===`GAGetImage`===
 
@@ -101,7 +116,30 @@ Returns complete `<img>` tag.
   * `$size=64` - The size (px) of avatar. Currently, it is up to 80px.
   * `$style='border: 1px solid black'` - style attribute of `img`
   * `$class=''` - class attribute of `img`
+  * `$link=true` - `img` wrapped within `a`.
 
-===`GAImageURI`===
+Sample Result:
 
-The `echo` version of `GAImage`
+{{{
+<a href="http://www.livibetter.com/it/profile/livibetter"><img style="border: 1px solid black;" src="http://www.gravatar.com/avatar.php?gravatar_id=9c8425c85f81798109d48e30fb1d28e4&amp;default=http%3A%2F%2Fwww.livibetter.com%2Fit%2Fmy-plugins%2Fgravatar-default.png&amp;size=64" alt="livibetter" height="64" width="64"></a>
+}}}
+
+===`GAImage`===
+
+The `echo` version of `GAGetImage` without a link.
+
+Sample Result:
+
+{{{
+<img style="border: 1px solid black;" src="http://www.gravatar.com/avatar.php?gravatar_id=9c8425c85f81798109d48e30fb1d28e4&amp;default=http%3A%2F%2Fwww.livibetter.com%2Fit%2Fmy-plugins%2Fgravatar-default.png&amp;size=64" alt="livibetter" height="64" width="64">
+}}}
+
+===`GAImageLink`===
+
+The `echo` version of `GAGetImage` with a link.
+
+Sample Result:
+
+{{{
+<a href="http://www.livibetter.com/it/profile/livibetter"><img style="border: 1px solid black;" src="http://www.gravatar.com/avatar.php?gravatar_id=9c8425c85f81798109d48e30fb1d28e4&amp;default=http%3A%2F%2Fwww.livibetter.com%2Fit%2Fmy-plugins%2Fgravatar-default.png&amp;size=64" alt="livibetter" height="64" width="64"></a>
+}}}
