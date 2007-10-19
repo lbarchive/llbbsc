@@ -5,7 +5,7 @@ Plugin URI: http://code.google.com/p/llbbsc/wiki/RoleDisplayNamePlugin
 Description: Changing Role Display Name.
 Author: Yu-Jie Lin
 Author URI: http://www.livibetter.com/
-Version: 0.1
+Version: 0.1.1
 Creation Date: 2007-10-16 06:49:00 UTC+8
 */
 /*
@@ -25,15 +25,15 @@ Creation Date: 2007-10-16 06:49:00 UTC+8
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-function ChangeRoleDisplayName() {
-    global $bb_roles;
-    $bb_roles->role_names['keymaster'] = "Toilet Cleaner";
-    $bb_roles->role_names['administrator'] = "Head of IT";
-    $bb_roles->role_names['moderator'] = "The Geek";
-    $bb_roles->role_names['member'] = "Employee";
-    $bb_roles->role_names['inactive'] = "Sleeper";
-    $bb_roles->role_names['blocked'] = "Hole on Ass";
+function ChangeRoleDisplayName($roles) {
+    $roles['keymaster'    ]['name'] = __("Toilet Cleaner");
+    $roles['administrator']['name'] = __("Head of IT");
+    $roles['moderator'    ]['name'] = __("The Geek");
+    $roles['member'       ]['name'] = __("Employee");
+    $roles['inactive'     ]['name'] = __("Sleeper");
+    $roles['blocked'      ]['name'] = __("Hole on Ass");
+    return $roles;
     }
 
-add_action('bb_got_roles', 'ChangeRoleDisplayName', 10, 0);
+add_filter('get_roles', 'ChangeRoleDisplayName');
 ?>
