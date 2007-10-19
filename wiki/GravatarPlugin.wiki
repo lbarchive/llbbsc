@@ -37,7 +37,7 @@ line 2 in `post.php`
 Add a line like
 {{{
 <p><strong><?php post_author_link(); ?></strong><br />
-  <?php GAImage() ?>
+  <?php GAImage() ?><br />
   <small><?php post_author_title(); ?></small></p>
 }}}
 
