@@ -5,7 +5,7 @@ Plugin URI: http://code.google.com/p/llbbsc/wiki/GravatarPlugin
 Description: A simple Gravatar plugin for bbPress
 Author: Yu-Jie Lin
 Author URI: http://www.livibetter.com/
-Version: 0.1
+Version: 0.1.1
 Creation Date: 2007-10-18 12:13:25 UTC+8
 */
 /*
@@ -118,6 +118,8 @@ function GAImageLink($id=0, $size=GA_DEFAULT_SIZE, $style='border: 1px solid bla
 function GAVerified($userID) {
     $gravatarEmail = bb_get_usermeta($userID, 'gravatar_email');
     $gravatarVCode = bb_get_usermeta($userID, 'gravatar_vcode');
+    // No such usermetas?
+    if (!$gravatarEmail || !$gravatarVCode) return false;
     $gravatar = bb_get_usermeta($userID, 'gravatar');
     return ($gravatarEmail == $gravatar['email'] &&
             $gravatarVCode == $gravatar['vcode']);
