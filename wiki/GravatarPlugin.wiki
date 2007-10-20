@@ -14,6 +14,7 @@ _Please also read *[http://code.google.com/p/llbbsc/ this page]*_
 
 ==Features==
 
+  * Gravatar Email field - This plugin doesn't use user's registered email.
   * Email Verification - Users need to own the Gravatar Emails which they input.
   * Support Default Image
   * Size customized (1..80px)
