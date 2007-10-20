@@ -7,18 +7,6 @@ A simple plugin for Gravatar.
 
 _Please also read *[http://code.google.com/p/llbbsc/ this page]*_
 
-=Download=
-
-* This is the temporary downloading method, because I am waiting for approval from bbPress Exten. Once I got it, I will move file onto it. *
-
-==Quick way==
-
-Download [http://llbbsc.googlecode.com/svn/trunk/bbPress/Gravatar/gravatar.php gravatar.php] only.
-
-==Subversion way==
-
-Run `svn checkout http://llbbsc.googlecode.com/svn/trunk/bbPress/Gravatar/ Gravatar`
-
 ==Demonstration==
 
   * [http://www.livibetter.com/it/profile/livibetter Profile Page]
@@ -31,6 +19,18 @@ Run `svn checkout http://llbbsc.googlecode.com/svn/trunk/bbPress/Gravatar/ Grava
   * Size customized (1..80px)
   * Option page (NOT YET IMPLEMENTED)
   * Default Image based on roles (NOT YET IMPLEMENTED)
+
+=Download=
+
+* This is the temporary downloading method, because I am waiting for approval from bbPress Exten. Once I got it, I will move file onto it. *
+
+==Quick way==
+
+Download [http://llbbsc.googlecode.com/svn/trunk/bbPress/Gravatar/gravatar.php gravatar.php] only.
+
+==Subversion way==
+
+Run `svn checkout http://llbbsc.googlecode.com/svn/trunk/bbPress/Gravatar/ Gravatar`
 
 =Installation=
 
