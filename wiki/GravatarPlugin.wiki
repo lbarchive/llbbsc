@@ -52,7 +52,7 @@ line 2 in `post.php`
 Add a line like
 {{{
 <p><strong><?php post_author_link(); ?></strong><br />
-  <?php GAImage() ?><br />
+  <?php GAImageLink() ?><br />
   <small><?php post_author_title(); ?></small></p>
 }}}
 
@@ -69,7 +69,7 @@ You can also add your own styles, and apply `class` to `GAImage()` (Read Usage s
 
 You can add a bigger avatar in profile page. Insert a line code before `<?php bb_profile_data(); ?>`, that looks like
 {{{
-<?php GAImageURI(0, 80, 'border: 1px solid gold', 'right'); ?>
+<?php GAImage(0, 80, 'border: 1px solid gold', 'right'); ?>
 <?php bb_profile_data(); ?>
 }}}
 Where `right` is a preset class in *Kakumei*. It is `float: right`.
