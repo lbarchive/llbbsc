@@ -96,7 +96,7 @@ This plug-in search and use the image in the following order:
 
 Go checking your profile page, and edit it. There should be an additional field called *Gravatar Email*. This plug-in use this field to display Gravatar's avatar not user's registered email. *Gravatar Email* will only be shown to whom has privilege to edit the user's profile. That means only Key Master, Administrator can see others' Gravatar Email.
 
-Once you save your new *Gravatar Email*, there should be a new *Verification Code* notification mail in your mailbox. Input the 8-letter code into your profile editing page. After you save your profile with the *Verification Code*, you should see your Gravatar avatar in you profile page immediately.
+Once you save your new *Gravatar Email*, there should be a new *Verification Code* notification mail in your mailbox (registered mail). Input the 8-letter code into your profile editing page. After you save your profile with the *Verification Code*, you should see your Gravatar avatar in you profile page immediately.
 
 ==Functions==
 
