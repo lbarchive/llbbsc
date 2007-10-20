@@ -5,7 +5,7 @@
 
 Quick and simple way to change roles' display names.
 
-_Please also read *[http://code.google.com/p/llbbsc/ this page]*_
+_Please also read *[http://code.google.com/p/llbbsc/ this page]* about Support, Discussion, etc_
 
 =Download=
 
