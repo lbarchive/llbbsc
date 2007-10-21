@@ -9,7 +9,7 @@ _Please also read *[http://code.google.com/p/llbbsc/ this page]* about Support, 
 
 ==Demonstration==
 
-Unfortunately, my own bbPress forum is too young (less an a year), therefore I can give you any demonstrations. If you have a bbPress forum more than a year and you use this plugin, please inform me with your forum. I may put a link for your forum.
+Unfortunately, my own bbPress forum is too young (less an a year), therefore I can't give you any demonstrations. If you have a bbPress forum more than a year and you use this plugin, please inform me with your forum. I may put a link for your forum.
 
 =Download=
 
