@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary On This Day plugin for bbPress
 #labels Featured,P-OnThisDay
 
 =Introduction=
