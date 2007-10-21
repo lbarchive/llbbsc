@@ -7,6 +7,10 @@ This is a simple plugin for creating a new View for listing topics started a yea
 
 _Please also read *[http://code.google.com/p/llbbsc/ this page]* about Support, Discussion, etc_
 
+==Demonstration==
+
+Unfortunately, my own bbPress forum is too young (less an a year), therefore I can give you any demonstrations. If you have a bbPress forum more than a year and you use this plugin, please inform me with your forum. I may put a link for your forum.
+
 =Download=
 
 ==Quick way==
