@@ -1,0 +1,28 @@
+#summary One-sentence summary of this page.
+#labels Featured,P-OnThisDay
+
+=Introduction=
+
+This is a simple plugin for creating a new View for listing topics started a year or years ago on the same calendar date.
+
+_Please also read *[http://code.google.com/p/llbbsc/ this page]* about Support, Discussion, etc_
+
+=Download=
+
+==Quick way==
+
+Download [http://llbbsc.googlecode.com/svn/trunk/bbPress/OnThisDay/on-this-day.php on-this-day] only.
+
+==Subversion way==
+
+Run `svn checkout http://llbbsc.googlecode.com/svn/trunk/bbPress/OnThisDay/ OnThisDay`
+
+=Installation=
+
+  * Upload `on-this-day.php` to `my-plugins`.
+  * Activate it.
+  * Done.
+
+=Usage=
+
+Click `On this day...` in your views menu.
