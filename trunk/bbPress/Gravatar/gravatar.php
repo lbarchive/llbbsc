@@ -5,7 +5,7 @@ Plugin URI: http://code.google.com/p/llbbsc/wiki/GravatarPlugin
 Description: A simple Gravatar plugin for bbPress
 Author: Yu-Jie Lin
 Author URI: http://www.livibetter.com/
-Version: 0.1.1
+Version: 0.1.2
 Creation Date: 2007-10-18 12:13:25 UTC+8
 */
 /*
@@ -136,6 +136,9 @@ function GAHook_get_profile_info_keys($keys) {
             $keys['gravatar_vcode'] = array(0, __('Gravatar Verification Code'));
             }
         }
+    elseif (bb_get_location() == 'register-page') {
+        $keys['gravatar_email'] = array(0, __('Gravatar Email'));
+        }
     return $keys;
     }
 
@@ -153,11 +156,11 @@ function GASendVCode($userID) {
 // Generate the Verification Code
 function GAGenerateVCode($userID) {
     $gravatar = bb_get_usermeta($userID, 'gravatar');
-    $gravatar['new_vcode'] = substr(md5(rand() . microtime()), 0, 8);
+    $gravatar['new_vcode'] = bb_random_pass(8); // from registration-functions.php
     bb_update_usermeta($userID, 'gravatar', $gravatar);
     }
 
-// Check gravatar_email usermeta
+// Check gravatar_email usermeta after profile edited or new user registered
 function GAHook_profile_edited($userID) {
     $gravatarEmail = bb_get_usermeta($userID, 'gravatar_email');
     $gravatarVCode = bb_get_usermeta($userID, 'gravatar_vcode');
@@ -174,7 +177,7 @@ function GAHook_profile_edited($userID) {
     if (!GAVerified($userID))
         if (isset($gravatar['new_email']) &&
             isset($gravatar['new_vcode'])) {
-            if ($gravatarEmail == $gravatar['new_email'] ||
+            if ($gravatarEmail == $gravatar['new_email'] &&
                 $gravatarVCode == $gravatar['new_vcode']) {
                 // New email verified, update with news
                 $gravatar['email'] = $gravatar['new_email'];
@@ -187,22 +190,38 @@ function GAHook_profile_edited($userID) {
                 // Save newer email
                 $gravatar['new_email'] = $gravatarEmail;
                 bb_update_usermeta($userID, 'gravatar', $gravatar);
+                bb_update_usermeta($userID, 'gravatar_vcode', 'Newer code should be in you mail box.');
                  // New email has been changed again, regenerate the vcode
                 GAGenerateVCode($userID);
                 GASendVCode($userID);
                 }
             else {
                 // New email has not been changed, send vcode again
+                bb_update_usermeta($userID, 'gravatar_vcode', 'Code has been sent again.');
                 GASendVCode($userID);
                 }
             }
         else {
+            // Verify the email format
+            if (bb_verify_email($gravatarEmail) === false) {
+                bb_update_usermeta($userID, 'gravatar_vcode', 'Not a Valid Email!');
+                bb_delete_usermeta($userID, 'gravatar');
+                return;
+                }
             // Generate new verification code
             $gravatar['new_email'] = $gravatarEmail;
+            bb_update_usermeta($userID, 'gravatar_vcode', 'Check Your Mailbox.');
             bb_update_usermeta($userID, 'gravatar', $gravatar);
             GAGenerateVCode($userID);
             GASendVCode($userID);
             }
+    }
+
+// Detects Registration page
+function GAHook_get_location ($prevResult, $src) {
+    if (bb_find_filename($src) == 'register.php')
+        return 'register-page';
+    return $prevResult;
     }
 
 /* Hooks
@@ -210,4 +229,6 @@ function GAHook_profile_edited($userID) {
 
 add_filter('get_profile_info_keys', 'GAHook_get_profile_info_keys');
 add_action('profile_edited', 'GAHook_profile_edited');
+add_action('register_user', 'GAHook_profile_edited');
+add_filter('bb_get_location', 'GAHook_get_location', 10, 2);
 ?>

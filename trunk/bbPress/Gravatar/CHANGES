@@ -1,6 +1,14 @@
 Gravatar CHANGES
 ================
 
+Gravatar 0.1.2 (2007-10-23)
+---------------------------
+Fixed: Logic error in line 177 - || -> &&.
+Moded: Use bb_random_pass.
+Moded: Use gravatar_vcode to show human understandable message.
+Added: Use bb_verify_mail.
+Added: Allow entering Gravatar Email at resistration stage.
+
 Gravatar 0.1.1 (2007-10-21)
 ---------------------------
 Fixed: No gravatar_email results no avatar
