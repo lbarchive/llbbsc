@@ -8,12 +8,23 @@ This plugin can validate more deeper. You can set your own regular expression fo
 ==Demonstration==
 
   * [http://www.livibetter.com/it/topic/0118-999-881-999-119-7253 Embedded YouTube video
+  * [http://www.livibetter.com/it/topic/plugin-html-tag-attributes-validator A floating right image]
 
 ==Features==
 
   * Support YouTube and Google Video's embedding code.
   * Support `img` tag.
   * You can add yours.
+
+=Download=
+
+==Quick way==
+
+Download [http://llbbsc.googlecode.com/svn/trunk/bbPress/HTMLTagAttributesValidator/HTMLTagAttributesValidator.php HTMLTagAttributesValidator.php] only.
+
+==Subversion way==
+
+Run `svn checkout http://llbbsc.googlecode.com/svn/trunk/bbPress/HTMLTagAttributesValidator/ HTMLTagAttributesValidator`
 
 =Installation=
 
@@ -75,3 +86,18 @@ Don't add your text right after an object with `class="left"`. It will slightly 
 My Text Here
 }}}
 Let them belong to different paragraphs (put a line break between them).
+
+==Closed `img` tag==
+If you use 
+{{{
+<img src="/images/icons/forgetIT.png" alt="Sample Image" title="Sample Image" class="right"/>
+}}}
+, then that results
+{{{
+<img src="/images/icons/forgetIT.png" alt="Sample Image" title="Sample Image">
+}}}
+If you use
+{{{
+<img src="/images/icons/forgetIT.png" alt="Sample Image" title="Sample Image" class="right" />
+}}}
+, this will be fine. There is an additional space.
