@@ -59,8 +59,8 @@ Add a line like
 
 Add a new style to `style.css`
 {{{
-.threadpost {
-    min-height: 100px;
+#thread .post {
+    min-height: 64px;
     }
 }}}
 
