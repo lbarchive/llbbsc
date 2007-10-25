@@ -7,7 +7,7 @@ This plugin can validate more deeper. You can set your own regular expression fo
 
 ==Demonstration==
 
-  * [http://www.livibetter.com/it/topic/0118-999-881-999-119-7253 Embedded YouTube video
+  * [http://www.livibetter.com/it/topic/0118-999-881-999-119-7253 Embedded YouTube video]
   * [http://www.livibetter.com/it/topic/plugin-html-tag-attributes-validator A floating right image]
 
 ==Features==
