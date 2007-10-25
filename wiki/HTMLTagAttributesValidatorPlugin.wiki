@@ -57,24 +57,21 @@ The `kses.php` protects forum from evil scripts, but also break some HTML codes.
 
 ==Google Videos: width and height==
 The code likes
-`
+{{{
 <embed style="width:400px; height:326px;" id="VideoPlayback" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=1921156852099786640&hl=en" flashvars=""> </embed>
-`
+}}}
 kses makes `<embed style="width:400px; height:326px;"` become `<embed style="400px; height:326px;"`. This should be able to be fixed with another filter. However, I don't want to write one, even though that is only one line.
 
 Another solution is rewriting it as `<embed width="400" height="326"`.
 
 ==Layout with float: left or class left==
-`
+{{{
 <object width="425" height="355" class="left"><param name="movie" value="http://www.youtube.com/v/s2Q6xbEZ-f0&rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/s2Q6xbEZ-f0&rel=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object>My Text Here
-`
-
+}}}
 Don't add your text right after an object with `class="left"`. It will slightly mess up the layout. Use this, instead:
-
-`
+{{{
 <object width="425" height="355" class="left"><param name="movie" value="http://www.youtube.com/v/s2Q6xbEZ-f0&rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/s2Q6xbEZ-f0&rel=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object>
-`
 
 My Text Here
-`
-Let them belong to different paragraphs.
+}}}
+Let them belong to different paragraphs (put a line break between them).
