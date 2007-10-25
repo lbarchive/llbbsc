@@ -3,7 +3,7 @@
 
 =Introduction=
 
-This plugin can validate more deeper. You can set your own regular expression for attributes. For example, you want limit users to post Flash videos only from YouTube or Google, then you can restrain the `src` attribute.
+This plugin can validate more deeper. Not only the HTML tag's attributes, but also the contents of attributes. You can set your own regular expression for attributes. For example, you want limit users to post Flash videos only from YouTube or Google, then you can restrain the `src` attribute.
 
 ==Demonstration==
 
