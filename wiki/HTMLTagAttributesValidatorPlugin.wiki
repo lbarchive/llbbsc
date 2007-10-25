@@ -63,6 +63,8 @@ function SampleTags($tags) {
 }}}
 You can have more then one regular expressions to one attribute. This plugin checks if any of those regular expressions is matched, then this attribute will be kept, otherwise it will be removed.
 
+You can provide some `class`es for users instead of allowing `style`. Users may use `style` to mess up your layout.
+
 =Known Issues=
 The `kses.php` protects forum from evil scripts, but also break some HTML codes. 
 
@@ -87,7 +89,7 @@ My Text Here
 }}}
 Let them belong to different paragraphs (put a line break between them).
 
-==Closed `img` tag==
+==Closing `img` tag==
 If you use 
 {{{
 <img src="/images/icons/forgetIT.png" alt="Sample Image" title="Sample Image" class="right"/>
