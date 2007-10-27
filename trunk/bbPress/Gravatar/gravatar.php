@@ -5,7 +5,7 @@ Plugin URI: http://code.google.com/p/llbbsc/wiki/GravatarPlugin
 Description: A simple Gravatar plugin for bbPress
 Author: Yu-Jie Lin
 Author URI: http://www.livibetter.com/
-Version: 0.1.2
+Version: 0.1.3
 Creation Date: 2007-10-18 12:13:25 UTC+8
 */
 /*
@@ -79,28 +79,29 @@ function GAImageURI($id=0, $size=GA_DEFAULT_SIZE) {
 
 // return preset complete img tag
 function GAGetImage($id=0, $size=GA_DEFAULT_SIZE, $style='border: 1px solid black', $class='', $link=true) {
-    global $GA_DEFAULT_IMAGE;
-    if ($id==0 || $id===null)
-        if (is_topic())
-           $id = get_post_author_id();
-    
-    // Check Size
-    if ($size<1) $size = GA_DEFAULT_SIZE;
-    if ($size>80) $size = 80;
-    // Check style and class
-    if ($style!='')
-        $style = " style=\"$style\"";
-    if ($class!='')
-        $class = " class=\"$class\"";
- 
-    if (!$user = bb_get_user(bb_get_user_id($id)))
-        return "<img$style$class width=\"{$size}px\" height=\"{$size}px\" src=\"$GA_DEFAULT_IMAGE?size=$size\" alt=\"\"/>";
+	global $GA_DEFAULT_IMAGE;
+	if ($id==0 || $id===null)
+		if (is_topic())
+		 $id = get_post_author_id();
+	
+	// Check Size
+	if ($size<1) $size = GA_DEFAULT_SIZE;
+	if ($size>80) $size = 80;
+	// Check style and class
+	if ($style!='')
+		$style = " style=\"$style\"";
+	if ($class!='')
+		$class = " class=\"$class\"";
 
-    $img = "<img$style$class width=\"{$size}px\" height=\"{$size}px\" src=\"" . GAGetImageURI($user->ID, $size) . "\" alt=\"$user->user_login\"/>";
-    if ($link)
-        return '<a href="' . attribute_escape(get_user_profile_link($user->ID)) . "\">$img</a>";
-    return $img;
-    }
+	if (!$user = bb_get_user(bb_get_user_id($id)))
+		return "<img$style$class width=\"{$size}px\" height=\"{$size}px\" src=\"$GA_DEFAULT_IMAGE?size=$size\" alt=\"\"/>";
+
+	$img = "<img$style$class width=\"{$size}px\" height=\"{$size}px\" src=\"" . GAGetImageURI($user->ID, $size) . '" alt="' .
+		(($user->display_name) ? $user->display_name : $user->user_login) . '"/>';
+	if ($link)
+		return '<a href="' . attribute_escape(get_user_profile_link($user->ID)) . "\">$img</a>";
+	return $img;
+	}
 
 // echo version of GAGetImage without link
 function GAImage($id=0, $size=GA_DEFAULT_SIZE, $style='border: 1px solid black', $class='') {
