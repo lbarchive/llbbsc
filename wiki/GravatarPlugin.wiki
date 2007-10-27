@@ -14,10 +14,11 @@ _Please also read *[http://code.google.com/p/llbbsc/ this page]* about Support, 
 
 ==Features==
 
-  * Gravatar Email field - This plugin doesn't use user's registered email.
-  * Email Verification - Users need to own the Gravatar Emails which they input.
-  * Support Default Image
+  * Gravatar Email field - This plugin doesn't use user's registered email
+  * Email Verification - Users need to own the Gravatar Emails which they input
+  * Supports Default Image
   * Size customized (1..80px)
+  * Shows Display Name instead of Login name if available
   * Option page (NOT YET IMPLEMENTED)
   * Default Image based on roles (NOT YET IMPLEMENTED)
 
