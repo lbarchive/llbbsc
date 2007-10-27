@@ -1,5 +1,6 @@
 #summary On This Day plugin for bbPress
 #labels Featured,P-OnThisDay
+*[[http://code.google.com/p/llbbsc/ HOME] | [http://groups.google.com/group/llbbsc GET SUPPORT] | [http://code.google.com/p/llbbsc/issues/list REPORT A BUG] | [http://code.google.com/p/llbbsc/issues/list REQUEST A FEATURE]]*
 
 =Introduction=
 
