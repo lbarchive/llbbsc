@@ -1,11 +1,10 @@
 #summary Gravatar bbPress Plugin
 #labels Featured,P-Gravatar
+*[[http://code.google.com/p/llbbsc/ HOME] | [http://groups.google.com/group/llbbsc GET SUPPORT] | [http://code.google.com/p/llbbsc/issues/list REPORT A BUG] | [http://code.google.com/p/llbbsc/issues/list REQUEST A FEATURE]]*
 
 =Introduction=
 
 A simple plugin for Gravatar.
-
-_Please also read *[http://code.google.com/p/llbbsc/ this page]* about Support, Discussion, etc_
 
 ==Demonstration==
 
