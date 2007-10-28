@@ -1,0 +1,6 @@
+#summary Some screenshots
+#labels P-OnThisDayWP
+
+= Options page =
+
+http://groups.google.com/group/wp-on-this-day/web/0.2.1-Options+.png
