@@ -2,25 +2,26 @@
 #labels P-OnThisDayWP
 [[http://code.google.com/p/llbbsc/w/edit/OnThisDayWPPlugin OTD] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginScreenshots Screenshots] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginInstallationAndUpgrading Installation and Upgrading] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginUsage Usage] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginCustomization Customization] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginSearchForm Search Form]]
 
-= Title =
+= OTD List Title =
 
 You can use `On %date:n, j%...` instead of `On this day...`.
 
-You should not use heading tags(h1, h2,...) embracing title of Widget.
+You should not use heading tags(h1, h2,...) embracing title of widget.
 
-= div block =
+= DIV Block =
 
 If you need OTD list within a div block, you can use `<div class="onthisday"><h3>On this day...</h3>` as title and `[snip] %search% </div>` as block.
 
 = Calling OTDList() =
 
-You can call `OTDList()` for listing.
+You can call `OTDList()` to list.
 
 {{{
 function OTDList($targetPost=null){
 }}}
 
 = Exclude current year's posts =
+
 Check `Exclude current year's post` in General Options. This option also applies on pages if `Include pages` checked.
 
 = Applying Style =
