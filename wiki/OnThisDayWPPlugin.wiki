@@ -1,5 +1,6 @@
 #summary On this day plugin for WordPress
 #labels Featured,P-OnThisDayWP
+*[[http://code.google.com/p/llbbsc/ HOME] | [http://groups.google.com/group/llbbsc GET SUPPORT] | [http://code.google.com/p/llbbsc/issues/list REPORT A BUG] | [http://code.google.com/p/llbbsc/issues/list REQUEST A FEATURE]]*
 
 This plugin is inspired by "On this day" in [http://en.wikipedia.org/ Wikipedia's home page]. It can list posts which have same calendar date as today's or as specific post's.
 
