@@ -24,3 +24,10 @@ This secion will tell you, do you need to upgrade and anything you have to pay a
   * Just override
   * If your WP can do date search normally, then you don't have to upgrade.
   * Upgrading to 0.1.1 can ensure including the javascript code only once. In another words, save little bandwidth.
+
+=Uninstalltion=
+
+From version 0.5, OTD allows you to remove all settings for OTD as well as deactivation of OTD.
+
+  * Go to OTD option page.
+  * Click "Deactivate Plugin" at "Management" section on right side.
