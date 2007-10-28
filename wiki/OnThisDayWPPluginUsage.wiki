@@ -1,0 +1,51 @@
+#summary How to use On this day plugin
+#labels P-OnThisDayWP
+
+There are three ways to use this plugin.
+
+= Widget =
+
+Go to *Presentation*/*Widgets*, drag widget "On this day" from *Available Widgets*, then drop it onto *Sidebar*.
+
+It results like (in default theme)
+
+http://wp-on-this-day.googlegroups.com/web/0.1-Default%20theme.png
+
+*Note*:
+  * You can check "Lists same calendar date posts to the post in single post mode" on in Widget Options in OTD Options page, then the OTD widget will list same calendar date posts when visitor is reading single post.
+  * If `Include pages` in General Options isn't checked, then widget will not show on pages.
+
+= Automatically appends =
+
+You can check these two options under General Options in On this day Options page: 	
+  * Show OTD list after single post automatically 	
+  * Show OTD list after every post automatically 	
+
+If you enable them, then the "On this day..." list will be appended right after post content.
+
+= Manually calls OTDList() =
+
+You can call `OTDList()` to get the list where you want to show. If you call this function within posts loop, then it will return posts which have same calendar date as current post.
+
+Here are examples from http://www.livibetter.com/blog/, it uses 
+{{{
+<?php while (have_posts()) : the_post(); ?>
+[...]
+	<div class="post-onthisday">
+		<h2>On this day...</h2>
+			<?php OTDList(); ?>
+	</div>
+[...]
+<?php endwhile;?>
+}}}
+in its `index.php`. You only need to take care the title of this list, then call `OTDList()`. In this mode, it uses templates in `Single post mode Options` or `Multi-posts mode Options`
+
+In its `sidebar.php`,
+{{{
+<div class="sidebar-item-content">
+	<?php OTDList(); ?>
+</div>
+}}}
+This use template in Widget Options. This results posts which have same calendar date as today's. If visitor is reading in single post or page and "Lists same calendar date posts to the post in single post mode" is checked in Widget Options in OTD Options page, then the this will list same calendar date posts as current post's or page's calendar date.
+
+http://wp-on-this-day.googlegroups.com/web/0.1-lb%20theme.png
