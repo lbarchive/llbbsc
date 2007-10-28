@@ -1,0 +1,26 @@
+#summary On this day plugin for WordPress
+#labels Featured,P-OnThisDayWP
+
+This plugin is inspired by "On this day" in [http://en.wikipedia.org/ Wikipedia's home page]. It can list posts which have same calendar date as today's or as specific post's.
+
+= Features =
+  * Full customization of HTML
+  * Widget Support
+  * Automatic appending list
+  * Option Page
+  * Search Form
+  * Completely deactivation
+
+It can automatically append "On this day" list after post content. You can use it as Widget, or just call `OTDList()` where you need to list.
+
+= Screenshots =
+
+Please check this [http://code.google.com/p/onthisday/wiki/Screenshots page] out.
+
+= Demonstration =
+
+Please check this [http://www.livibetter.com/blog/2007/07/29/wp-plugin-on-this-day-demo-post/ demo blog post] out.
+
+= Download =
+
+Please download this plugin source in [http://wordpress.org/extend/plugins/on-this-day/ WordPress Extend], files are not provided in this Google Code page.
