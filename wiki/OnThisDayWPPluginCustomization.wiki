@@ -1,0 +1,51 @@
+#summary How to get better result
+#labels P-OnThisDayWP
+
+= Title =
+
+You can use `On %date:n, j%...` instead of `On this day...`.
+
+You should not use heading tags(h1, h2,...) embracing title of Widget.
+
+= div block =
+
+If you need OTD list within a div block, you can use `<div class="onthisday"><h3>On this day...</h3>` as title and `[snip] %search% </div>` as block.
+
+= Calling OTDList() =
+
+You can call `OTDList()` for listing.
+
+{{{
+function OTDList($targetPost=null){
+}}}
+
+= Exclude current year's posts =
+Check `Exclude current year's post` in General Options. This option also applies on pages if `Include pages` checked.
+
+= Applying Style =
+
+== Search Form ==
+This form looks like
+{{{
+<form class="dateSearchForm" id="dateSearchForm-<?php echo rand(); ?>">
+    <div class="dateSearchForm">
+        <select class="dateSearchMonth" name="dateSearchMonth">
+            <option></option>
+            <option></option>
+            <option></option>
+        </select>
+        <select class="dateSearchDay" name="dateSearchDay">
+            <option></option>
+            <option></option>
+            <option></option>
+        </select>
+        <select class="dateSearchYear" name="dateSearchYear">
+            <option></option>
+            <option></option>
+            <option></option>
+        </select>
+        <input class="dateSearchButton" type="button" value="&raquo;" onclick="searchDate(this.form)"/>
+    </div>
+</form>
+}}}
+You can add styles into your stylesheet.
