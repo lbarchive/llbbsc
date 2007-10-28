@@ -1,5 +1,6 @@
 #summary Search Form
 #labels P-OnThisDayWP
+[[http://code.google.com/p/llbbsc/w/edit/OnThisDayWPPlugin OTD] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginScreenshots Screenshots] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginInstallationAndUpgrading Installation and Upgrading] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginUsage Usage] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginCustomization Customization] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginSearchForm Search Form]]
 
 = Introduction =
 
