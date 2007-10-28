@@ -2,6 +2,14 @@
 #labels P-OnThisDayWP
 [[http://code.google.com/p/llbbsc/w/edit/OnThisDayWPPlugin OTD] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginScreenshots Screenshots] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginInstallationAndUpgrading Installation and Upgrading] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginUsage Usage] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginCustomization Customization] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginSearchForm Search Form]]
 
-= Options page =
+=OTD Widget=
 
-http://groups.google.com/group/wp-on-this-day/web/0.2.1-Options+.png
+http://groups.google.com/group/llbbsc/web/OTD-Widget.png
+
+=Appends after Post=
+
+http://groups.google.com/group/llbbsc/web/OTD-Post.png
+
+=Options Page=
+
+http://groups.google.com/group/llbbsc/web/OTD-OptionsPage.png
