@@ -2,9 +2,9 @@
 #labels P-OnThisDayWP
 [[http://code.google.com/p/llbbsc/w/edit/OnThisDayWPPlugin OTD] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginScreenshots Screenshots] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginInstallationAndUpgrading Installation and Upgrading] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginUsage Usage] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginCustomization Customization] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginSearchForm Search Form]]
 
-= OTD List Title =
+= OTD List Titles =
 
-You can use `On %date:n, j%...` instead of `On this day...`.
+You can use `On %date:jS of F%...` instead of `On this day...`. You will see something like `28th of October...`.
 
 You should not use heading tags(h1, h2,...) embracing title of widget.
 
@@ -22,7 +22,7 @@ function OTDList($targetPost=null){
 
 = Exclude current year's posts =
 
-Check `Exclude current year's post` in General Options. This option also applies on pages if `Include pages` checked.
+Check *`Exclude current year's post`* in General Options. This option also applies on pages if *`Include pages`* checked.
 
 = Applying Style =
 
@@ -50,4 +50,4 @@ This form looks like
     </div>
 </form>
 }}}
-You can add styles into your stylesheet.
+You can define those styles into your stylesheet.
