@@ -14,7 +14,7 @@ This plugin is inspired by "On this day" in [http://en.wikipedia.org/ Wikipedia'
   * Search Form
   * Completely deactivation
 
-It can automatically append "On this day" list after post content. You can use it as Widget, or just call `OTDList()` where you need to list.
+It can automatically append "On this day" list after post content. You can use it as Widget, or just call `OTDList()` where you need to show OTD list.
 
 = Screenshots =
 
