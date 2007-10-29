@@ -40,4 +40,6 @@ Go to [http://code.google.com/p/llbbsc/downloads/list?q=label:P-Gravatar Downloa
 
 ==Subversion way==
 
-Run `svn checkout http://llbbsc.googlecode.com/svn/trunk/bbPress/Gravatar/ Gravatar`
+Trunk: `svn checkout http://llbbsc.googlecode.com/svn/trunk/bbPress/Gravatar/ Gravatar`
+
+Version 0.2: `svn export http://llbbsc.googlecode.com/svn/tags/bbPress/Gravatar/0.2 Gravatar`
