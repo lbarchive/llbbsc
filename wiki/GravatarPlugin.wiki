@@ -2,6 +2,12 @@
 #labels Featured,P-Gravatar
 *[[http://code.google.com/p/llbbsc/ HOME] | [http://groups.google.com/group/llbbsc GET SUPPORT] | [http://code.google.com/p/llbbsc/issues/list REPORT A BUG] | [http://code.google.com/p/llbbsc/issues/list REQUEST A FEATURE]]*
 
+[[http://code.google.com/p/llbbsc/wiki/GravatarPlugin Gravatar] | 
+[http://code.google.com/p/llbbsc/wiki/GravatarPluginScreenshots Screenshots] |
+[http://code.google.com/p/llbbsc/wiki/GravatarPluginIUU Install, Upgrade or Uninstall] | 
+[http://code.google.com/p/llbbsc/wiki/GravatarPluginCustomization Customization] |
+[http://code.google.com/p/llbbsc/wiki/GravatarPluginUsage Usage]]
+
 * This page is being modified for Version 0.2 *
 
 =Introduction=
@@ -37,151 +43,3 @@ Download [http://llbbsc.googlecode.com/svn/trunk/bbPress/Gravatar/gravatar.php g
 ==Subversion way==
 
 Run `svn checkout http://llbbsc.googlecode.com/svn/trunk/bbPress/Gravatar/ Gravatar`
-
-=Installation=
-
-==Basic Steps==
-
-  * Upload Gravatar directory to `my-plugins`.
-  * Activate it.
-
-==Theme Modifications==
-
-The following assumes using *Kakumei*. You may need to make you own if you use different theme.
-
-===`post.php` and `style.css`===
-line 2 in `post.php`
-{{{
-<p><strong><?php post_author_link(); ?></strong><br />
-  <small><?php post_author_title(); ?></small></p>
-}}}
-Add a line like
-{{{
-<p><strong><?php post_author_link(); ?></strong><br />
-  <?php GAImageLink() ?><br />
-  <small><?php post_author_title(); ?></small></p>
-}}}
-
-Add a new style to `style.css`
-{{{
-#thread .post {
-    min-height: 64px;
-    }
-}}}
-
-You can also add your own styles, and apply `class` to `GAImage()` (Read Usage section for more detail or next subsection for an example).
-
-===`profile.php`===
-
-You can add a bigger avatar in profile page. Insert a line code before `<?php bb_profile_data(); ?>`, that looks like
-{{{
-<?php GAImage(0, 80, 'border: 1px solid gold', 'right'); ?>
-<?php bb_profile_data(); ?>
-}}}
-Where `right` is a preset class in *Kakumei*. It is `float: right`.
-
-=Customization=
-
-==Gravatar Email Source==
-
-If you switch to the other source, users would need to reactivate.
-
-==Default Image==
-
-First install or reset *Default Image Options` make plugin to search and use a image in the following order:
-
-  # my-plugins/gravatar-default.jpg
-  # my-plugins/gravatar-default.gif
-  # my-plugins/gravatar-default.png
-  # bb-template/current_template/gravatar-default.jpg
-  # bb-template/current_template/gravatar-default.gif
-  # bb-template/current_template/gravatar-default.png
-
-If not available, it will leave it blank, and this makes Gravatar shows its icon if users don't have avatars at Gravatar.com.
-
-==Default Role Images==
-
-In plugin's Options page, it will list all the current roles. You can assign an image URI to anyone of those roles. If a user has no avatar setting, then this plugin will use role's default image or the *Default Image* setting above.
-
-=Usage=
-
-==Setting your own Gravatar Email==
-
-===Registered Email method===
-
-The first time users should receive their password notification mail as well as another Gravatar usage verification notification email. Just copy the code and paste it to `Gravatar Verification Code` field in profile editing page after first time login.
-
-If the user changes their registered email, plugin will automatically send new verification email to the new registered email. Meanwhile, the users' Gravatar are disabled.
-
-===Additional Gravatar Email field===
-
-* Entering in registration *
-
-The first time users can enter their Gravatar email in registration as well. They should receive their password notification mail as well as another Gravatar usage verification notification email. Just copy the code and paste it to `Gravatar Verification Code` field in profile editing page after first time login.
-
-* Activating after registration or Modifying Gravatar Email *
-
-Go checking your profile page and edit it. There should be an additional field called *Gravatar Email*. *Gravatar Email* will only be shown to whom has privilege to edit the user's profile. That means only Key Master, Administrator can see others' Gravatar Email.
-
-Once you save your new *Gravatar Email*, there should be a new *Verification Code* notification mail in your mailbox (registered mail). Input the 8-letter code into your profile editing page. After you save your profile with the *Verification Code*, you should see your Gravatar avatar in you profile page immediately.
-
-==Functions==
-
-===`GAGetImageURI`===
-
-Returns `src` for `<img>` tag.
-
-  * `$id=0` - User ID
-  * `$size=0` - The size (px) of avatar. Currently, it is up to 80px.
-
-Sample Result:
-
-{{{
-http://www.gravatar.com/avatar.php?gravatar_id=9c8425c85f81798109d48e30fb1d28e4&amp;default=http%3A%2F%2Fwww.livibetter.com%2Fit%2Fmy-plugins%2Fgravatar-default.png&amp;size=64
-}}}
-
-===`GAImageURI`===
-
-The `echo` version of `GAGetImageURI`
-
-Sample Result:
-
-{{{
-http://www.gravatar.com/avatar.php?gravatar_id=9c8425c85f81798109d48e30fb1d28e4&amp;default=http%3A%2F%2Fwww.livibetter.com%2Fit%2Fmy-plugins%2Fgravatar-default.png&amp;size=64
-}}}
-
-===`GAGetImage`===
-
-Returns complete `<img>` tag.
-
-  * `$id=0` - User ID
-  * `$size=0` - The size (px) of avatar. Currently, it is up to 80px.
-  * `$style='border: 1px solid black'` - style attribute of `img`
-  * `$class=''` - class attribute of `img`
-  * `$link=true` - `img` wrapped within `a`.
-
-Sample Result:
-
-{{{
-<a href="http://www.livibetter.com/it/profile/livibetter"><img style="border: 1px solid black;" src="http://www.gravatar.com/avatar.php?gravatar_id=9c8425c85f81798109d48e30fb1d28e4&amp;default=http%3A%2F%2Fwww.livibetter.com%2Fit%2Fmy-plugins%2Fgravatar-default.png&amp;size=64" alt="livibetter" height="64" width="64"></a>
-}}}
-
-===`GAImage`===
-
-The `echo` version of `GAGetImage` without a link.
-
-Sample Result:
-
-{{{
-<img style="border: 1px solid black;" src="http://www.gravatar.com/avatar.php?gravatar_id=9c8425c85f81798109d48e30fb1d28e4&amp;default=http%3A%2F%2Fwww.livibetter.com%2Fit%2Fmy-plugins%2Fgravatar-default.png&amp;size=64" alt="livibetter" height="64" width="64">
-}}}
-
-===`GAImageLink`===
-
-The `echo` version of `GAGetImage` with a link.
-
-Sample Result:
-
-{{{
-<a href="http://www.livibetter.com/it/profile/livibetter"><img style="border: 1px solid black;" src="http://www.gravatar.com/avatar.php?gravatar_id=9c8425c85f81798109d48e30fb1d28e4&amp;default=http%3A%2F%2Fwww.livibetter.com%2Fit%2Fmy-plugins%2Fgravatar-default.png&amp;size=64" alt="livibetter" height="64" width="64"></a>
-}}}
