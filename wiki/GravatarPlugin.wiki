@@ -13,13 +13,15 @@ A simple plugin for Gravatar.
 
 ==Features==
 
-  * Gravatar Email field - This plugin doesn't use user's registered email
-  * Email Verification - Users need to own the Gravatar Emails which they input
-  * Supports Default Image
-  * Size customized (1..80px)
-  * Shows Display Name instead of Login name if available
-  * Option page (NOT YET IMPLEMENTED)
-  * Default Image based on roles (NOT YET IMPLEMENTED)
+  * Gravatar Email
+  ** Use registered email
+  ** Use additional Gravatar Email field
+  * Email Verification - Users need to verify Gravatar Emails which they input
+  * Options page (NOT YET IMPLEMENTED)
+  * Default Image - Supports displaying Default Image
+  ** Also supports displaying different Default Image based on user's role
+  * Display Name - Shows Display Name instead of Login name if available
+  * Size, Rating
 
 =Download=
 
