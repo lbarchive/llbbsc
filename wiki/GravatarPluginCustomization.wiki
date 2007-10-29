@@ -1,5 +1,10 @@
 #summary Customization
 #labels P-Gravatar
+[[http://code.google.com/p/llbbsc/wiki/GravatarPlugin Gravatar] | 
+[http://code.google.com/p/llbbsc/wiki/GravatarPluginScreenshots Screenshots] |
+[http://code.google.com/p/llbbsc/wiki/GravatarPluginIUU Install, Upgrade or Uninstall] | 
+[http://code.google.com/p/llbbsc/wiki/GravatarPluginCustomization Customization] |
+[http://code.google.com/p/llbbsc/wiki/GravatarPluginUsage Usage]]
 
 =Gravatar Email Source=
 
