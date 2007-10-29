@@ -15,7 +15,7 @@ A simple plugin for Gravatar.
 
 ==Features==
 
-  * Gravatar Email
+  * Two Gravatar Email Source
     * Use registered email
     * Use additional Gravatar Email field
   * Email Verification - Users need to verify Gravatar Emails which they input
@@ -80,6 +80,10 @@ You can add a bigger avatar in profile page. Insert a line code before `<?php bb
 Where `right` is a preset class in *Kakumei*. It is `float: right`.
 
 =Customization=
+
+==Gravatar Email Source==
+
+If you switch to the other source, users would need to reactivate.
 
 ==Default Image==
 
