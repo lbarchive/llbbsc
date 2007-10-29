@@ -1,0 +1,23 @@
+#summary Customization
+#labels P-Gravatar
+
+=Gravatar Email Source=
+
+If you switch to the other source, users would need to reactivate.
+
+=Default Image=
+
+First install or reset *Default Image Options` make plugin to search and use a image in the following order:
+
+  # my-plugins/gravatar-default.jpg
+  # my-plugins/gravatar-default.gif
+  # my-plugins/gravatar-default.png
+  # bb-template/current_template/gravatar-default.jpg
+  # bb-template/current_template/gravatar-default.gif
+  # bb-template/current_template/gravatar-default.png
+
+If not available, it will leave it blank, and this makes Gravatar shows its icon if users don't have avatars at Gravatar.com.
+
+=Default Role Images=
+
+In plugin's Options page, it will list all the current roles. You can assign an image URI to anyone of those roles. If a user has no avatar setting, then this plugin will use role's default image or the *Default Image* setting above.
