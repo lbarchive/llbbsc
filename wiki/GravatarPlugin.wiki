@@ -24,6 +24,7 @@ A simple plugin for Gravatar.
     * Also supports displaying different Default Image based on user's role
   * Display Name - Shows Display Name instead of Login name if available
   * Size, Rating
+  * Complete Deactivation - Removes options and data in usermeta.
 
 =Download=
 
