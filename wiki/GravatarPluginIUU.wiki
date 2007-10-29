@@ -11,7 +11,7 @@
 
 ==Basic Steps==
 
-  * Upload `Gravatar` directory to `my-plugins`.
+  * Upload `Gravatar` directory to `my-plugins`, which contains no CHANGES and LICENSE.
   * Activate it.
 
 ==Theme Modifications==
