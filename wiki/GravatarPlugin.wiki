@@ -36,7 +36,7 @@ A simple plugin for Gravatar.
 
 ==Quick way==
 
-Go to [http://code.google.com/p/llbbsc/downloads/list Download] for a zipped file.
+Go to [http://code.google.com/p/llbbsc/downloads/list?q=label:P-Gravatar Download] for a zipped file.
 
 ==Subversion way==
 
