@@ -38,7 +38,7 @@ A simple plugin for Gravatar.
 
 ==Quick way==
 
-Download [http://llbbsc.googlecode.com/svn/trunk/bbPress/Gravatar/gravatar.php gravatar.php] only.
+Go to [http://code.google.com/p/llbbsc/downloads/list Download] for a zipped file.
 
 ==Subversion way==
 
