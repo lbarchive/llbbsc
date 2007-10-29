@@ -8,8 +8,6 @@
 [http://code.google.com/p/llbbsc/wiki/GravatarPluginCustomization Customization] |
 [http://code.google.com/p/llbbsc/wiki/GravatarPluginUsage Usage]]
 
-* This page is being modified for Version 0.2 *
-
 =Introduction=
 
 A simple plugin for Gravatar.
