@@ -2,6 +2,8 @@
 #labels Featured,P-Gravatar
 *[[http://code.google.com/p/llbbsc/ HOME] | [http://groups.google.com/group/llbbsc GET SUPPORT] | [http://code.google.com/p/llbbsc/issues/list REPORT A BUG] | [http://code.google.com/p/llbbsc/issues/list REQUEST A FEATURE]]*
 
+* This page is being modified for Version 0.2 *
+
 =Introduction=
 
 A simple plugin for Gravatar.
@@ -14,12 +16,12 @@ A simple plugin for Gravatar.
 ==Features==
 
   * Gravatar Email
-  ** Use registered email
-  ** Use additional Gravatar Email field
+    * Use registered email
+    * Use additional Gravatar Email field
   * Email Verification - Users need to verify Gravatar Emails which they input
-  * Options page (NOT YET IMPLEMENTED)
+  * Options page
   * Default Image - Supports displaying Default Image
-  ** Also supports displaying different Default Image based on user's role
+    * Also supports displaying different Default Image based on user's role
   * Display Name - Shows Display Name instead of Login name if available
   * Size, Rating
 
