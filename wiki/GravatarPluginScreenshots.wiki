@@ -1,0 +1,6 @@
+#summary Screenshots
+#labels P-Gravatar
+
+=Options page=
+
+http://llbbsc.googlegroups.com/web/Gravatar-OptionsPage.png
