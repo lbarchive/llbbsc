@@ -4,7 +4,7 @@
 
 This project is a web page with JavaScript. It generates copying permission statement of popular licenses for developers. And the generated statement can be also in a commenting block.
 
-[http://www.livibetter.com/page/cpsg/cpsg.htm Try it!]
+=[http://www.livibetter.com/page/cpsg/cpsg.htm Use it!]=
 
 =Download=
 
