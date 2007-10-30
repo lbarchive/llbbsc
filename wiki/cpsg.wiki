@@ -1,5 +1,6 @@
 #summary Copying Permission Statement Generator
-#labels P-cpsg
+#labels P-cpsg,Featured
+*[[http://code.google.com/p/llbbsc/ HOME] | [http://groups.google.com/group/llbbsc GET SUPPORT] | [http://code.google.com/p/llbbsc/issues/list REPORT A BUG] | [http://code.google.com/p/llbbsc/issues/list REQUEST A FEATURE]]*
 
 This project is a web page with JavaScript. It generates copying permission statement of popular licenses for developers. And the generated statement can be also in a commenting block.
 
