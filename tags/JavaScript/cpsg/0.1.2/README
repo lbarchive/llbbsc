@@ -1,0 +1,97 @@
+INTRODUCTION
+============
+
+This project is a web page with JavaScript. It can generate copying permission
+statement of popular licenses for developers. And the generated statement can be
+also in commenting block.
+
+
+MORE ABOUT cpsg
+===============
+
+cpsg was born on 4/15/2007 8:09:26, made by livibetter. Its website is hosted at
+http://code.google.com/p/llbbsc/wiki/cpsg
+
+About the author, livibetter, please visit his personal website
+http://www.livibetter.com
+
+
+FEATURES
+========
+
+  * Word Wrap
+  * Commenting out statement
+
+
+REQUIREMENTS
+============
+
+  * FireFox or Internet Explorer
+
+
+UPGRADING
+=========
+
+  * Just overrides the old files
+
+
+INSTALLING
+==========
+ 
+Source
+------
+  
+  Unzip to arbitrary directory, then double click on src/cpsg.htm.
+
+ SVN
+-----
+
+  Please checkout using
+  svn checkout http://llbbsc.googlecode.com/svn/trunk/JavaScript/cpsg cpsg
+  
+
+USAGE
+=====
+
+
+UNINSTALLING
+============
+
+  * Delete the folder you installed
+
+
+GETTING HELP
+============
+
+  Please visit http://code.google.com/p/llbbsc/wiki/cpsg and post your problems
+  on http://groups.google.com/group/llbbsc .
+
+  
+ROADMAP
+=======
+
+
+CREDITS
+=======
+
+
+COPYRIGHT AND LICENSE
+=====================
+
+  Copyright 2007 Yu-Jie Lin
+
+    This program is free software; you can redistribute it and/or modify it under
+    the terms of the GNU General Public License as published by the Free Software
+    Foundation; either version 3 of the License, or (at your option) any later
+    version.
+
+    This program is distributed in the hope that it will be useful, but WITHOUT
+    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+    FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+    details.
+
+    You should have received a copy of the GNU General Public License along with
+    this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  Licensed under GNU General Public License Version 3 (see COPYING)
+
