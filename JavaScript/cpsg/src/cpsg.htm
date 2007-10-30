@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<title>Copying Permission Statement Generator</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+	<meta name="author" content="livibetter"/>
+	<meta name="copyright" content="&copy; 2007 Yu-Jie Lin"/>
+	<meta name="description" content="This project is a web page with JavaScript. It can generate copying permission statement of popular licenses for developers. And the generated statement can be also in commenting block."/>
+	<meta name="keywords" content="copying, permission, license"/>
+	<link rel="stylesheet" type="text/css" href="cpsg.css"/>
+	<script type="text/javascript" src="cpsg.js"></script>
+</head>
+<body onload="OnLoad()">
+<div class="wrap">
+<h1>Copying Permission Statement Generator</h1>
+
+<div id="sidebar">
+<h2>About this</h2>
+You can download the source and run it from your computer. If you need some licenses or languages to be added, please feel free to notify the author in the <a href="http://code.google.com/p/llbbsc/wiki/cpsg">project's page</a> or <a href="http://groups.google.com/group/llbbsc">discussion group</a>. If you find any mistakes, please submit an <a href="http://code.google.com/p/llbbsc/issues/list">issue</a> and you can request a feature as well using it.
+
+<h2>Further reading</h2>
+<ul>
+	<li><a href="http://www.opensource.org/licenses/alphabetical">Open Source Licenses</a></li>
+	<li><a href="http://en.wikibooks.org/wiki/FOSS_Licensing">FOSS Licensing</a></li>
+</ul>
+</div>
+
+<div id="content">
+<h2>Settings</h2>
+	<h3>License</h3>
+	<div id="licenseSelector"> </div>
+	<textarea id="licenseTemplate" cols="80" rows="5" wrap="off"></textarea>
+	<br/>
+	<a href="javascript:OnDownload();">Download this license</a>(New window)
+
+	<h3>Language</h3>
+	<div id="languagesSelector"> </div>
+	<div id="languageFields"> </div>
+
+	<h3>Information</h3>
+	<div id="infoFields"> </div>
+
+<h2>Result</h2>
+	<button onclick="Generate()">Generate</button>
+	<br class="clear">
+	<textarea id="licenseResult" cols="80" rows="5" wrap="off"></textarea>
+</div>
+
+<div id="footer">
+This work is licensed under GNU General Public License version 3 - &copy; 2007 <a href="http://www.livibetter.com">Yu-Jie Lin</a>. All rights reserved.
+</div>
+</div>
+</body>
+</html>

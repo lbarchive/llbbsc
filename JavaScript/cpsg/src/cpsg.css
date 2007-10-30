@@ -1,0 +1,86 @@
+body{
+	margin: 0px;
+	background-color: LightCyan;
+	font-family: Arial;
+	font-size: 1em;
+	}
+a{
+	text-decoration: none;
+	}
+input{
+	margin: 3px;
+	padding: 3px;
+	border: 1px solid RoyalBlue;
+	background-color: Coral;
+	font-size: 1em;
+	color: Blue;
+	}
+button{
+	background-color: LightBlue;
+	}
+textarea{
+	}
+span.languageField,
+span.infoField{
+	margin: 3px;
+	padding: 3px;
+	float: left;
+	}
+input.languageField,
+input.infoField{
+	float: right;
+	}
+br.clear{
+	clear: both;
+	}
+h1{
+	margin: 0px;
+	padding: 20px 0px 0px 10px;
+	background-color: LightPink;
+	}
+h2{
+	margin-top: 10px;
+	margin-bottom: 5px;
+	}
+h3{
+	margin-top: 10px;
+	margin-bottom: 5px;
+	}
+div {
+	margin: 0;
+	padding: 0;
+	}
+
+ul {
+	padding-left: 0;
+	}
+ul li{
+	margin-left: 20px;
+	}
+
+div.wrap{
+	margin: 20px;
+	width: 1000px;
+	}
+
+#content {
+	width: 780px;
+	}
+
+#sidebar {
+	float: right;
+	width: 200px;
+	}
+
+div#languageFields{
+	width: 400px;
+	}
+div#infoFields{
+	width: 400px;
+	}
+
+div#footer {
+	clear: both;
+	padding: 5px 0;
+	text-align: center;
+	}
