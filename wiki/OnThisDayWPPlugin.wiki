@@ -22,7 +22,7 @@ It can automatically append "On this day" list after post content. You can use i
 
 = Screenshots =
 
-Please check this [http://code.google.com/p/onthisday/wiki/Screenshots page] out.
+Please check this [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginScreenshots page] out.
 
 = Demonstration =
 
