@@ -4,19 +4,18 @@
 
 [[http://code.google.com/p/llbbsc/wiki/OnThisDayWPPlugin OTD] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginScreenshots Screenshots] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginInstallationAndUpgrading Installation and Upgrading] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginUsage Usage] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginCustomization Customization] | [http://code.google.com/p/llbbsc/wiki/OnThisDayWPPluginSearchForm Search Form]]
 
-* The documentation is being updated for version 0.6 *
-
 This plugin is inspired by "On this day" in [http://en.wikipedia.org/ Wikipedia's home page]. It can list posts which have same calendar date as today's or as specific post's.
 
 = Features =
-  * Full customization of HTML
+  * Full Customization of HTML
   * Widget Support
-  * Automatic appending list
-  * Option Page
-  * Search Form
+  * Automatic appending list - No need to add codes
+  * Upcoming Old Posts Reminder in Dashboard
+  * Options Page
+  * Search Form - Search Posts by Partial Date
   * Complete Deactivation
-  * Translations (HelpTranslating)
-    * Traditional Chinese (zh_TW) by Yu-Jie Lin
+  * Translations
+    * Traditional Chinese
 
 It can automatically append "On this day" list after post content. You can use it as Widget, or just call `OTDList()` where you need to show OTD list.
 
