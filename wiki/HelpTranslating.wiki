@@ -1,3 +1,14 @@
 #summary Information about how to help translating
+#labels Featured
 
 * This page is being written *
+
+=Introduction=
+
+I am still working on writing a document for whom want to help translating.
+
+If you already have experiences of translating using a given .pot file, then please contact me.
+
+=Latest .pot locations of my creations=
+
+  * On this day WordPress plugin: [http://svn.wp-plugins.org/on-this-day/trunk/po/OnThisDay.pot trunk]
