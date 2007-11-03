@@ -9,6 +9,23 @@ I am still working on writing a document for whom want to help translating.
 
 If you already have experiences of translating using a given .pot file, then please contact me.
 
+=Notes=
+
+  * All communications should use [http://groups.google.com/group/llbbsc llbbsc Discussion Group].
+  * Contacting before translating.
+
+=General Tasks for Translators=
+
+  # Translate
+    #Translated all untranslated messages and updated all fuzzy messages.
+    # Verify in program, make sure nothing is broken by translation.
+  # Provide you public personal information _(optional)_
+    # Your Name - Real name or nickname.
+    # *Personal* Website - This would be listed in homepage of the program.
+  # Simple Introduction page for program _(optional)_
+    If you can make a simple page for the program in your web space, llbbsc's discussion group space or Google Pages, etc. That would be greatly appreciated. You don't need to make new just translated one, e.g. translating http://code.google.com/p/llbbsc/w/edit/OnThisDayWPPlugin for On this day WordPress plugin.
+    You don't have to do this with PO translating at the same time. Just post a link in group when you done.
+
 =Latest .pot locations of my creations=
 
   * On this day WordPress plugin: [http://svn.wp-plugins.org/on-this-day/trunk/po/OnThisDay.pot trunk]
