@@ -1,0 +1,236 @@
+#!/bin/bash
+#
+################################################################################
+## Copyright 2007 Yu-Jie Lin
+## 
+## This program is free software; you can redistribute it and/or modify it
+## under the terms of the GNU General Public License as published by the Free
+## Software Foundation; either version 3 of the License, or (at your option)
+## any later version.
+## 
+## This program is distributed in the hope that it will be useful, but WITHOUT
+## ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+## FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+## more details.
+## 
+## You should have received a copy of the GNU General Public License along
+## with this program.  If not, see <http://www.gnu.org/licenses/>.
+################################################################################
+#
+# l10n tool script for WordPress plugins
+# Script Website: http://code.google.com/p/llbbsc/
+#
+# Author        : Yu-Jie Lin
+# Author Website: http://www.livibetter.com
+# Creation Date : 2007-10-31T11:59:33+0800
+
+# Source configure file
+if [ ! -f bmgc.conf ]; then
+	echo "You need bmgc.conf in current directory!"
+	exit 1
+fi
+
+. bmgc.conf
+
+# build pot
+# ======================================
+
+Build() {
+	YEAR=`date +%Y`
+
+	mkdir -p $PO_DIR
+
+	xgettext -D $SOURCE_DIR \
+			-d $DOMAIN \
+			-o $POT \
+			-p $PO_DIR \
+			--keyword=__ \
+			--keyword=_e \
+			--keyword=___ \
+			--copyright-holder="$COPYRIGHT_HOLDER" \
+			--msgid-bugs-address="$MSGID_BUGS_ADDRESS" \
+			$SOURCES
+
+	cd $PO_DIR
+
+	# Replace some variables
+	sed '1, 20 {
+	s_text/plain; charset=CHARSET_text/plain; charset=UTF-8_
+	s/Copyright (C) YEAR/Copyright (C) '$YEAR'/
+	s/SOME DESCRIPTIVE TITLE/'"$TITLE"'/
+	s/PACKAGE/'"$PACKAGE"'/
+	s/VERSION/'"$VERSION"'/
+	}' < $POT > $POT.tmp
+
+	mv $POT.tmp $POT
+	}
+
+# merge po
+# ======================================
+
+Merge() {
+	CheckPOT
+
+	cd $PO_DIR
+
+	# Extract Package and Version from .pot
+	PACKAGE_VERSION=`sed -n '1,20 s/"Project-Id-Version: \(.*\)\\\n"/\1/p' < $POT`
+
+	# Must ensure existence of the po file before calling `DoMerge locale`
+	DoMerge() {
+		echo -n "$1: "
+		msgmerge -qv -o $1.po.merged $1.po $POT
+		# Update Product-Id-Version	
+		sed '1,20 s/Project-Id-Version: .*\\n"/Project-Id-Version: '"$PACKAGE_VERSION"'\\n"/' < $1.po.merged > $1.po
+		rm $1.po.merged
+		}
+
+	if [ -n "$1" ]; then
+		if [ "$1" == "all" ]; then
+			# Merge all locales
+			for locale in `ls *.po`; do
+				DoMerge ${locale%%.*}
+				done
+		else
+			# Only the specified locale
+			if [ -f $DOMAIN-$1.po ]; then
+				DoMerge $DOMAIN-$1
+			else
+				echo "$PO_DIR/$DOMAIN-$1.po does not exist. Create new one."
+				cp $POT $DOMAIN-$1.po
+				fi
+			fi
+	else
+		PrintUsage
+		fi
+	}
+
+# Generate mo
+# ======================================
+
+Generate() {
+	CheckPOT
+
+	PO_REVISION_DATE=`date +"%Y-%m-%d %H:%M%z"`
+
+	mkdir -p $LOCALE_DIR
+	cd $PO_DIR
+
+	# Must ensure existence of the po file before calling `DoCompile locale`
+	DoCompile() {
+		# Replace information
+		sed '1,20 {
+	s/PO-Revision-Date: .*\\n"/PO-Revision-Date: '"$PO_REVISION_DATE"'\\n"/
+	s/Last-Translator: .*\\n"/Last-Translator: '"$LAST_TRANSLATOR"'\\n"/
+	}' < $1.po > $1.po.tmp
+		mv $1.po.tmp $1.po
+
+		echo -n "$1: "
+		# Compile it
+		msgfmt --statistics -o $1.mo $1.po
+		mv $1.mo ../$LOCALE_DIR
+		}
+
+	if [ -n "$1" ]; then
+		if [ "$1" == "all" ]; then
+			# Merge all locales
+			for locale in `ls *.po`; do
+				DoCompile ${locale%%.*}
+				done
+		else
+			# Only the specified locale
+			if [ -f $DOMAIN-$1.po ]; then
+				DoCompile $DOMAIN-$1
+			else
+				echo "$PO_DIR/$DOMAIN-$1.po does not exist!"
+				fi
+			fi
+	else
+		PrintUsage
+		fi
+	}
+
+# Check po
+# ======================================
+
+Check() {
+	CheckPOT
+
+	cd $PO_DIR
+
+	# Must ensure existence of the po file before calling `DoCompile locale`
+	DoCheck() {
+		echo -n "$1: "
+		# Check it
+		msgfmt --statistics -o /dev/null $1.po
+		}
+
+	if [ -n "$1" ]; then
+		if [ "$1" == "all" ]; then
+			# Merge all locales
+			for locale in `ls *.po`; do
+				DoCheck ${locale%%.*}
+				done
+		else
+			# Only the specified locale
+			if [ -f $DOMAIN-$1.po ]; then
+				DoCheck $DOMAIN-$1
+			else
+				echo "$PO_DIR/$DOMAIN-$1.po does not exist!"
+				fi
+			fi
+	else
+		PrintUsage
+		fi
+	}
+
+CheckPOT() {
+	if [ ! -d $PO_DIR ]; then
+		echo "Please build .pot first!"
+		exit 1
+		fi
+	}
+
+PrintUsage() {
+	echo "Usage: ${0##*/} <b|m|g|c> <options>
+
+b Build .pot
+  b [version]
+
+m Merge .pot to .po
+  m <all|locale>
+
+g Generate .mo
+  g <all|locale>
+
+c Check .po
+  c <all|locale>
+"
+	}
+
+if [ $# -eq 0 ]; then
+	PrintUsage
+else
+	case "$1" in
+	"b")
+		shift
+		Build $@
+		;;
+	"m")
+		shift
+		Merge $@
+		;;
+	"g")
+		shift
+		Generate $@
+		;;
+	"c")
+		shift
+		Check $@
+		;;
+	*)
+		PrintUsage
+		exit 1
+		;;
+	esac
+fi
