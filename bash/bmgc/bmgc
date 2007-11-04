@@ -59,7 +59,7 @@ Build() {
 	s/Copyright (C) YEAR/Copyright (C) '$YEAR'/
 	s/SOME DESCRIPTIVE TITLE/'"$TITLE"'/
 	s/PACKAGE/'"$PACKAGE"'/
-	s/VERSION/'"$VERSION"'/
+	s/VERSION/'"$1"'/
 	}' < $POT > $POT.tmp
 
 	mv $POT.tmp $POT
