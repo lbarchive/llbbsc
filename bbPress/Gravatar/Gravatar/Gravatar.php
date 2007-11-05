@@ -5,7 +5,7 @@ Plugin URI: http://code.google.com/p/llbbsc/wiki/GravatarPlugin
 Description: A simple Gravatar plugin for bbPress
 Author: Yu-Jie Lin
 Author URI: http://www.livibetter.com/
-Version: 0.2
+Version: 0.2.1
 Creation Date: 2007-10-18 12:13:25 UTC+8
 */
 /*
@@ -24,6 +24,9 @@ Creation Date: 2007-10-18 12:13:25 UTC+8
  * You should have received a copy of the GNU General Public License along
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+define('GRAVATAR_DOMAIN', 'Gravatar');
+load_plugin_textdomain(GRAVATAR_DOMAIN, dirname(__FILE__) . '/locale');
 
 /* Template stuff
 ======================================== */
@@ -160,12 +163,12 @@ function GAHook_get_profile_info_keys($keys) {
 		// A powerful user or user him/herself
 		if (bb_current_user_can('edit_user', $user_id)) {
 			if (!$options['useRegisteredEmail'])
-				$keys['gravatar_email'] = array(0, __('Gravatar Email'));
-			$keys['gravatar_vcode'] = array(0, __('Gravatar Verification Code'));
+				$keys['gravatar_email'] = array(0, __('Gravatar Email', GRAVATAR_DOMAIN));
+			$keys['gravatar_vcode'] = array(0, __('Gravatar Verification Code', GRAVATAR_DOMAIN));
 			}
 		}
 	elseif (bb_get_location() == 'register-page' && !$options['useRegisteredEmail'])
-		$keys['gravatar_email'] = array(0, __('Gravatar Email'));
+		$keys['gravatar_email'] = array(0, __('Gravatar Email', GRAVATAR_DOMAIN));
 
 	return $keys;
 	}
@@ -173,10 +176,10 @@ function GAHook_get_profile_info_keys($keys) {
 // Send the Verification Code
 function GASendVCode($userID) {
 	$gravatar = bb_get_usermeta($userID, 'gravatar');
-	$message = "New Gravatar Email is %1\$s.\nNew Verification Code is %2\$s\n\nIt is an 8-letter string. Note that before you successfully verify your new Gravatar Email, your Gravatar will not work.\n\n%3\$s\n%4\$s";
+	$message = __("New Gravatar Email is %1\$s.\nNew Verification Code is %2\$s\n\nIt is an 8-letter string. Note that before you successfully verify your new Gravatar Email, your Gravatar will not work.\n\n%3\$s\n%4\$s", GRAVATAR_DOMAIN);
 	if (false === bb_mail(
 		bb_get_user_email($userID),
-		bb_get_option('name') . ': ' . __('Your Gravatar usage verification code'),
+		bb_get_option('name') . ': ' . __('Your Gravatar usage verification code', GRAVATAR_DOMAIN),
 		sprintf($message, $gravatar['new_email'],$gravatar['new_vcode'], bb_get_option('name'), bb_get_option('uri'))))
 		error_log("bPress GA: Failed to send notification mail (user ID $userID)");
 	}
@@ -222,27 +225,27 @@ function GAHook_profile_edited($userID) {
 				// Save newer email
 				$gravatar['new_email'] = $gravatarEmail;
 				bb_update_usermeta($userID, 'gravatar', $gravatar);
-				bb_update_usermeta($userID, 'gravatar_vcode', 'Newer code should be in you mail box.');
+				bb_update_usermeta($userID, 'gravatar_vcode', 'Newer code should be in you mail box.'); #__('Newer code should be in you mail box.', GRAVATAR_DOMAIN));
 				 // New email has been changed again, regenerate the vcode
 				GAGenerateVCode($userID);
 				GASendVCode($userID);
 				}
 			else {
 				// New email has not been changed, send vcode again
-				bb_update_usermeta($userID, 'gravatar_vcode', 'Code has been sent again.');
+				bb_update_usermeta($userID, 'gravatar_vcode', 'Code has been sent again.'); #__('Code has been sent again.', GRAVATAR_DOMAIN));
 				GASendVCode($userID);
 				}
 			}
 		else {
 			// Verify the email format
 			if (bb_verify_email($gravatarEmail) === false) {
-				bb_update_usermeta($userID, 'gravatar_vcode', 'Not a Valid Email!');
+				bb_update_usermeta($userID, 'gravatar_vcode', 'Not a Valid Email!'); #__('Not a Valid Email!', GRAVATAR_DOMAIN));
 				bb_delete_usermeta($userID, 'gravatar');
 				return;
 				}
 			// Generate new verification code
 			$gravatar['new_email'] = $gravatarEmail;
-			bb_update_usermeta($userID, 'gravatar_vcode', 'Check Your Mailbox.');
+			bb_update_usermeta($userID, 'gravatar_vcode', 'Check Your Mailbox.'); #__('Check Your Mailbox.', GRAVATAR_DOMAIN));
 			bb_update_usermeta($userID, 'gravatar', $gravatar);
 			GAGenerateVCode($userID);
 			GASendVCode($userID);
@@ -306,7 +309,7 @@ function GAGetDefaultImageOptions() {
 
 function GAAdminMenu() {
 	global $bb_submenu;
-	$bb_submenu['plugins.php'][] = array(__('Gravatar'), 'manage_options', 'GAOptions');
+	$bb_submenu['plugins.php'][] = array(__('Gravatar', GRAVATAR_DOMAIN), 'manage_options', 'GAOptions');
 
 	$options = bb_get_option('GAOptions');
 	// Check options for 0.2 or first install

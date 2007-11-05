@@ -27,12 +27,12 @@ function GAOptions() {
  
 	if (isset($_POST['manage'])) {
 		switch($_POST['manage']) {
-		case 'Reset All Options':
+		case __('Reset All Options', GRAVATAR_DOMAIN):
 			$options = GAGetAllDefaultOptions();
 			bb_update_option('GAOptions', $options);
-			echo '<div class="updated"><p>All options are resetted!</p></div>';
+			echo '<div class="updated"><p>' . __('All options are reseted!', GRAVATAR_DOMAIN) . '</p></div>';
 			break;
-		case 'Deactivate Plugin':
+		case __('Deactivate Plugin', GRAVATAR_DOMAIN):
 			$plugin_file = dirname(bb_plugin_basename(__FILE__)) . '/Gravatar.php';
 			wp_redirect(str_replace('&#038;', '&', bb_nonce_url("plugins.php?action=deactivate&plugin=$plugin_file", "deactivate-plugin_$plugin_file")) . '&by=plugin');
 			break;
@@ -40,25 +40,25 @@ function GAOptions() {
 		}
 	elseif (isset($_POST['updateGeneralOptions'])) {
 		switch($_POST['updateGeneralOptions']) {
-		case 'Save':
+		case __('Save', GRAVATAR_DOMAIN):
 			$newOptions = array();
 			$newOptions['useRegisteredEmail'] = ($_POST['useRegisteredEmail'] == 'true') ? true : false;
 			$newOptions['rating'] = $_POST['rating'];
 			$newOptions['size']   = $_POST['size'];
 			$options = array_merge($options, $newOptions);
 			bb_update_option('GAOptions', $options);
-			echo '<div class="updated"><p>General options saved!</p></div>';
+			echo '<div class="updated"><p>' . __('General options saved!', GRAVATAR_DOMAIN) . '</p></div>';
 			break;
-		case 'Reset':
+		case __('Reset', GRAVATAR_DOMAIN):
 			$options = array_merge($options, GAGetDefaultGeneralOptions());
 			bb_update_option('GAOptions', $options);
-			echo '<div class="updated"><p>General options reseted!</p></div>';
+			echo '<div class="updated"><p>' . __('General options reseted!', GRAVATAR_DOMAIN) . '</p></div>';
 			break;
 			}
 		}
 	elseif (isset($_POST['updateImageOptions'])) {
 		switch($_POST['updateImageOptions']) {
-		case 'Save':
+		case __('Save', GRAVATAR_DOMAIN):
 			$newOptions = array();
 			$newOptions['defaultImage'] = $_POST['defaultImage'];
 			// Find default image URIs for roles
@@ -72,58 +72,57 @@ function GAOptions() {
 				}
 			$options = array_merge($options, $newOptions);
 			bb_update_option('GAOptions', $options);
-			echo '<div class="updated"><p>Image options saved!</p></div>';
+			echo '<div class="updated"><p>' . __('Image options saved!', GRAVATAR_DOMAIN) . '</p></div>';
 			break;
-		case 'Reset':
+		case __('Reset', GRAVATAR_DOMAIN):
 			$options = array_merge($options, GAGetDefaultImageOptions());
 			unset($options['defaultRoleImages']);
 			bb_update_option('GAOptions', $options);
-			echo '<div class="updated"><p>Image options reseted!</p></div>';
+			echo '<div class="updated"><p>' . __('Image options reseted!', GRAVATAR_DOMAIN) . '</p></div>';
 			break;
 			}
 		}
 	// Render options page
 ?>
-	<h2>Gravatar Options</h2>
-		<h3>About this plugin</h3>
+	<h2><?php _e('Gravatar Options', GRAVATAR_DOMAIN); ?></h2>
+		<h3><?php _e('About this plugin', GRAVATAR_DOMAIN); ?></h3>
 		<div>
 		<ul>
-			<li><a href="http://code.google.com/p/llbbsc/wiki/GravatarPlugin">Plugin's Website</a> - Documentations</li>
-			<li><a href="http://groups.google.com/group/llbbsc">Get Support</a> - Ask question, submit feedbacks</li>
-			<li><a href="http://www.livibetter.com/">Author's Website</a></li>
+			<li><a href="http://code.google.com/p/llbbsc/wiki/GravatarPlugin"><?php _e('Plugin\'s Website', GRAVATAR_DOMAIN); ?></a> - <?php _e('Documentations', GRAVATAR_DOMAIN); ?></li>
+			<li><a href="http://groups.google.com/group/llbbsc"><?php _e('Get Support', GRAVATAR_DOMAIN); ?></a> - <?php _e('Ask question, submit feedbacks', GRAVATAR_DOMAIN); ?></li>
+			<li><a href="http://www.livibetter.com/"><?php _e('Author\'s Website', GRAVATAR_DOMAIN); ?></a></li>
 		</ul>
 		</div>
 
-		<h3>Management</h3>
+		<h3><?php _e('Management', GRAVATAR_DOMAIN); ?></h3>
 		<div>
 			<form method="post" action="">
 				<p>
-					<input type="submit" name="manage" value="Reset All Options" style="font-weight:bold;"/>
-					<small>Reverts all options to defaults.</small>
+					<input type="submit" name="manage" value="<?php _e('Reset All Options', GRAVATAR_DOMAIN); ?>" style="font-weight:bold;"/>
+					<small><?php _e('Reverts all options to defaults.', GRAVATAR_DOMAIN); ?></small>
 				</p>
 				<p>
-					<input type="submit" name="manage" value="Deactivate Plugin" style="font-weight:bold;"/>
-					<small>Be careful! This will remove all your settings for this plugin! If you don't want to lose settings, please use Plugins page to deactivate this plugin.</small>
+					<input type="submit" name="manage" value="<?php _e('Deactivate Plugin', GRAVATAR_DOMAIN); ?>" style="font-weight:bold;"/>
+					<small><?php _e('Be careful! This will remove all your settings for this plugin! If you don\'t want to lose settings, please use Plugins page to deactivate this plugin.', GRAVATAR_DOMAIN); ?></small>
 				</p>
 			</form>
 		</div>
 
-		<h3>General Options</h3>
+		<h3><?php _e('General Options', GRAVATAR_DOMAIN); ?></h3>
 		<div>
 			<form method="post" action="">
 			<table><tbody>
 				<tr>
-					<td><label for="useRegisteredEmail">Use Registered Email?</labal></td>
+					<td><label for="useRegisteredEmail"><?php _e('Use Registered Email?', GRAVATAR_DOMAIN); ?></labal></td>
 					<td>
 						<select name="useRegisteredEmail" id="useRegisteredEmail">
-						<option <?php if($options['useRegisteredEmail']) echo 'selected'; ?> value="false">No</option>
-						<option <?php if($options['useRegisteredEmail']) echo 'selected'; ?> value="true">Yes</option>
+						<option <?php if($options['useRegisteredEmail']) echo 'selected'; ?> value="false"><?php _e('No', GRAVATAR_DOMAIN); ?></option>
+						<option <?php if($options['useRegisteredEmail']) echo 'selected'; ?> value="true"><?php _e('Yes', GRAVATAR_DOMAIN); ?></option>
 						</select>
-						<em><small>Use registered emails as Gravatar emails.</small></em>
 					<td>
 				</tr>
 				<tr>
-					<td><label for="rating">Rating:</label></td>
+					<td><label for="rating"><?php _e('Rating:', GRAVATAR_DOMAIN); ?></label></td>
 					<td>
 						<select name="rating" id="rating">
 						<option <?php if(empty($options['rating']) ) echo 'selected'; ?>   value=""></option>
@@ -135,43 +134,43 @@ function GAOptions() {
 					</td> 
 				</tr>
 				<tr>
-					<td><label for="size">Avatar Size:</label></td>
+					<td><label for="size"><?php _e('Avatar Size:', GRAVATAR_DOMAIN); ?></label></td>
 					<td>
 						<input name="size" type="text" id="size" value="<?php echo $options['size']; ?>" size="3"/>
-						<em><small>1 to 80 (pixels).</small></em>
+						<em><small><?php _e('1 to 80 (pixels).', GRAVATAR_DOMAIN); ?></small></em>
 					</td>
 				</tr>
 			</tbody></table>
 			<div class="submit">
-				<input type="submit" name="updateGeneralOptions" value="Save" style="font-weight:bold;"/>
-				<input type="submit" name="updateGeneralOptions" value="Reset" style="font-weight:bold;"/>
+				<input type="submit" name="updateGeneralOptions" value="<?php _e('Save', GRAVATAR_DOMAIN); ?>" style="font-weight:bold;"/>
+				<input type="submit" name="updateGeneralOptions" value="<?php _e('Reset', GRAVATAR_DOMAIN); ?>" style="font-weight:bold;"/>
 			</div>
 			</form>
 		</div>
 
-		<h3 >Default Image URIs</h3>
+		<h3 ><?php _e('Default Image URIs', GRAVATAR_DOMAIN); ?></h3>
 		<div>
 			<form method="post" action="">
 			<table><tbody>
 				<tr>
-					<th>Avatar</th>
-					<th>Role Name / Default Image URI</th>
+					<th><?php _e('Avatar', GRAVATAR_DOMAIN); ?></th>
+					<th><?php _e('Role Name / Default Image URI', GRAVATAR_DOMAIN); ?></th>
 				</tr>
 				<tr>
 					<td style="text-align: center">
 <?php
 $imageURI = $options['defaultImage'];
 if (!empty($imageURI))
-	echo '<img style="border: 1px solid black; width: 64px; height: 64px;" src="' . attribute_escape($imageURI) . '" alt="Default Image"/>';
+	echo '<img style="border: 1px solid black; width: 64px; height: 64px;" src="' . attribute_escape($imageURI) . '" alt="' . __('Default Image', GRAVATAR_DOMAIN) . '"/>';
 ?>
 					</td>
 					<td>
-						<label for="defaultImage">Default Image - This will apply to all no avatars users with no default avatar role.</label><br/>
+						<label for="defaultImage"><?php _e('Default Image - This will apply to all no avatars users with no default avatar role.', GRAVATAR_DOMAIN); ?></label><br/>
 						<input name="defaultImage" type="text" id="defaultImage" value="<?php echo htmlspecialchars(stripslashes($options['defaultImage'])); ?>" size="50" />
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2">The following role default avatars override the Default Image above. Applies only when users don't have an avatar.</td>
+					<td colspan="2"><?php _e('The following role default avatars override the Default Image above. Applies only when users don\'t have an avatar.', GRAVATAR_DOMAIN); ?></td>
 				</tr>
 <?php
 // List Roles
@@ -197,8 +196,8 @@ if (!empty($imageURI))
 ?>
 			</tbody></table>
 			<div class="submit">
-				<input type="submit" name="updateImageOptions" value="Save" style="font-weight:bold;"/>
-				<input type="submit" name="updateImageOptions" value="Reset" style="font-weight:bold;"/>
+				<input type="submit" name="updateImageOptions" value="<?php _e('Save', GRAVATAR_DOMAIN); ?>" style="font-weight:bold;"/>
+				<input type="submit" name="updateImageOptions" value="<?php _e('Reset', GRAVATAR_DOMAIN); ?>" style="font-weight:bold;"/>
 			</div>
 			</form>
 		</div>

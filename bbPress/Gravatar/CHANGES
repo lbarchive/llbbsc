@@ -1,6 +1,10 @@
 Gravatar CHANGES
 ================
 
+Gravatar 0.2.1(2007-11-06T05:22:21+0800)
+----------------------------------------
+Added: zh_TW - Traditional Chinese locale
+
 Gravatar 0.2 (2007-10-29T16:46:50+0800)
 --------------------------
 Added: Support using registered email as Gravatar email.
