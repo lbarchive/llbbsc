@@ -6,7 +6,7 @@
 
 http://groups.google.com/group/llbbsc/web/OTD-Widget.png
 
-=Appends after Post=
+=Appending after Post=
 
 http://groups.google.com/group/llbbsc/web/OTD-Post.png
 
