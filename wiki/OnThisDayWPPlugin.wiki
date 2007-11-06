@@ -15,6 +15,7 @@ This plugin is inspired by "On this day" in [http://en.wikipedia.org/ Wikipedia'
   * Search Form - Search Posts by Partial Date
   * Complete Deactivation
   * Translations ([http://code.google.com/p/llbbsc/wiki/HelpTranslating Help Translating])
+    * bg_BG - Bulgarian by [http://yovko.net/ Yovko Lambrev]
     * zh_TW - [http://www.livibetter.com/blog/2007/11/05/%e6%ad%b7%e5%8f%b2%e4%b8%8a%e7%9a%84%e4%bb%8a%e5%a4%a9-wordpress-%e5%a4%96%e6%8e%9b/ Traditional Chinese]
 
 It can automatically append "On this day" list after post content. You can use it as Widget, or just call `OTDList()` where you need to show OTD list.
