@@ -25,11 +25,11 @@ If you don't know how to translate using a .pot and you use Linux, please read [
 
 = Gravatar bbPress plugin =
 
-== Latest .pot ==
+== Latest `.pot` and last modified `.po` ==
 
-Download it in [http://llbbsc.googlecode.com/svn/trunk/bbPress/Gravatar/po/Gravatar.pot trunk]
+Download it in [http://llbbsc.googlecode.com/svn/trunk/bbPress/Gravatar/po/ trunk]
 
-== bmgc.conf sample ==
+== `bmgc.conf` sample ==
 {{{
 # General
 # ======================================
@@ -65,11 +65,11 @@ LAST_TRANSLATOR="Yu-Jie Lin <lb07@livibetter.com>"
 
 = On this day WordPress plugin =
 
-== Latest .pot ==
+== Latest `.pot` and last modified `.po` ==
 
-Download it in [http://svn.wp-plugins.org/on-this-day/trunk/po/OnThisDay.pot trunk]
+Download it in [http://svn.wp-plugins.org/on-this-day/trunk/po/ trunk]
 
-== bmgc.conf sample ==
+== `bmgc.conf` sample ==
 {{{
 # General
 # ======================================
