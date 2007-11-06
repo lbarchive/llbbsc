@@ -1,6 +1,10 @@
 bmgc
 ====
 
+2007-11-06T18:43:58+0800
+------------------------
+Moded: c mode generate .mo but not replace entities in header
+
 2007-11-05T03:29:15+0800
 ------------------------
 Fixed: missing of VERSION in build mode

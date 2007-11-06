@@ -162,7 +162,8 @@ Check() {
 	DoCheck() {
 		echo -n "$1: "
 		# Check it
-		msgfmt --statistics -o /dev/null $1.po
+		msgfmt --statistics -o $1.mo $1.po
+		mv $1.mo ../$LOCALE_DIR
 		}
 
 	if [ -n "$1" ]; then
