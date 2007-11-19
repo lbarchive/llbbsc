@@ -4,8 +4,7 @@
 
 = Installation =
 
-== Version 0.1 to 0.2.3 ==
+== All Versions ==
   # Copy directory `CiteThis` to `wp-content/plugins`.
   # Activate "Cite this..." in plugins page.
   # *Update permalink structure*.
-  # Add "Cite this..." widget at sidebar.
