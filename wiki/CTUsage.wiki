@@ -1,0 +1,24 @@
+#summary Information on Usage
+#labels P-CT
+
+= Options =
+== General Options ==
+=== Institution ===
+Some citation style may need this. It maybe different than your blog's name.
+
+=== Modes ===
+  * Single Post Mode: Options under this mode are for accessing URI like `/blog/2007/11/17/come-to-your-senses/`.  It also means you only can read one post on that page.
+  * Multi-post Mode: Options under this mode are for accessing URIs like `/blog/`, `/blog/category/projects/`, `/blog/tag/linux/`, `/blog/2007/11/`, etc. It also means you can read more than one post on such kinds of URIs.
+  * Widget Mode: Options under this mode are
+    # for CT Widget
+    # for being used in calling CT widget rendering function if not applicable to using CT as widget because your theme doesn't support it.
+
+=== Providing Methods ===
+Each mode above may have the following citations providing methods:
+  * Disable: By checking this to not show citations to visitors.
+  * Automatic: By checking this to directly append citations right after post's content.
+  * Manual: By checking this to allow visitors to get citation by a click.
+    * Dynamic: If you also check this, after visitors clicking on "Cite this...", then the citations will be loaded in-page, not redirect to a citation-only page.
+    * Popup: If you also check this, after visitors clicking on "(new window)", then brings up a new browser window with the citations.
+
+== Citation Styles ==
