@@ -21,4 +21,20 @@ Each mode above may have the following citations providing methods:
     * Dynamic: If you also check this, after visitors clicking on "Cite this...", then the citations will be loaded in-page, not redirect to a citation-only page.
     * Popup: If you also check this, after visitors clicking on "(new window)", then brings up a new browser window with the citations.
 
-== Citation Styles ==
+= Overrides Options =
+You can override General Options in previous section using post custom field, by creating a field `CT` with value syntax:
+  * `disable` - Disable "Cite this".
+  * `mode=(auto|manual)&dynamic=(true|false)&popup=(true|false)&styles=(apa,mla,...)`
+
+For example: `mode=manual&dynamic=false&styles=apa`
+
+http://llbbsc.googlegroups.com/web/CT-OverridingOptions.png
+
+*Note*:
+  * Overriding affects Single Post Mode and Multi-post Mode.
+  * Each key-value pair are optional.
+  * Citation texts' visibilities and their order still depend on Citation Styles options.
+
+*Best use of overriding*:
+  * Most of your posts are informative - Overrides those are not informative with meta as `CT:disable`.
+  * Most of your posts are not informative - Overrides those are informative with meta such as `CT:mode=auto` and disable Single Post Mode and Multi-post Mode.
