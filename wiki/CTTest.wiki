@@ -1,0 +1,14 @@
+#summary Information on Testing Installation
+#labels P-CT
+
+= Introduction =
+
+Many plugin users asked about why doesn't this plugin work. The reason could be various. Before you installing this plugin, it's better to ensure:
+  * Your WordPress's version is the same as CT's developing environment. Check the `readme.txt` in the archive you downloaded.
+  * You may need to use latest CT version, the problem you have may have been solved.
+
+= First, Default and Classic Theme =
+
+  * Please reset plugin's General Options and switch blog's theme to Default or Classic.
+  * Go to the home page of you blog.
+  * Are there gray bars after each post?
