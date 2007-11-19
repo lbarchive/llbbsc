@@ -1,0 +1,21 @@
+#summary Cite This WordPress Plugin
+#labels P-CT
+Nowadays, more and more bloggers write informative articles. By this plugin, those articles could be referred to in a formal citation.
+
+= Features =
+  * Fully customized citation styles.
+  * Three modes to provide citation texts.
+    # Append after article.
+    # A link to a static page or loading dynamically.
+    # Open in new window.
+  * Different modes in single post or multi-post loop.
+  * Widget support
+  * Plugin options page.
+
+= Demonstration =
+
+Please check this [http://www.livibetter.com/blog/2007/07/19/wp-plugin-cite-this-demo-post/ demo blog post] out.
+
+= Download =
+
+Please download this plugin source in [http://wordpress.org/extend/plugins/cite-this/ WordPress Extend], files are not provided in this Google Code page.
