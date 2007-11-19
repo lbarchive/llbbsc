@@ -13,3 +13,15 @@ Many plugin users asked about why doesn't this plugin work. The reason could be 
   * Please reset plugin's General Options and switch blog's theme to Default or Classic.
   * Go to the home page of you blog.
   * Is there a gray bar after each post?
+
+If default or classic can work with CT, then you may need to [http://code.google.com/p/llbbsc/wiki/CTThemeModification modify your theme].
+
+= Default and Classic Theme can't work with CT =
+
+Try to deactivate plugins other than CT. Does CT work now? If so, then you need to find out which plugin conflicts with CT and report to [http://groups.google.com/group/llbbsc this group].
+
+= Still not working =
+
+Please try to read any errors in your web server's error log which generated right after you load a page of your blog. That page should have CT, for example your home page of blog.
+
+Report the errors, WordPress version, PHP version, MySQL version to [http://groups.google.com/group/llbbsc this group].
