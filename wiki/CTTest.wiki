@@ -11,4 +11,4 @@ Many plugin users asked about why doesn't this plugin work. The reason could be 
 
   * Please reset plugin's General Options and switch blog's theme to Default or Classic.
   * Go to the home page of you blog.
-  * Are there gray bars after each post?
+  * Is there a gray bar after each post?
