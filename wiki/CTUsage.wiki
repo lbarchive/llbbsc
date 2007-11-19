@@ -32,7 +32,7 @@ http://llbbsc.googlegroups.com/web/CT-OverridingOptions.png
 
 *Note*:
   * Overriding affects Single Post Mode and Multi-post Mode.
-  * Each key-value pair are optional.
+  * Each key-value pair is optional.
   * Citation texts' visibilities and their order still depend on Citation Styles options.
 
 *Best use of overriding*:
