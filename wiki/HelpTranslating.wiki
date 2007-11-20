@@ -1,5 +1,5 @@
 #summary Information about how to help translating
-#labels Featured
+#labels P-OnThisDayWP,P-Gravatar
 
 =Introduction=
 
@@ -64,6 +64,9 @@ LAST_TRANSLATOR="Yu-Jie Lin <lb07@livibetter.com>"
 }}}
 
 = On this day WordPress plugin =
+== Current Status ==
+  * bg_BG - Bulgarian - [94/95]
+  * zh_TW - Traditional Chinese - [95/95]
 
 == Latest `.pot` and last modified `.po` ==
 
