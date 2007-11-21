@@ -2,7 +2,9 @@
 #labels P-CT,Featured
 *[[http://code.google.com/p/llbbsc/ HOME] | [http://groups.google.com/group/llbbsc GET SUPPORT] | [http://code.google.com/p/llbbsc/issues/list REPORT A BUG / REQUEST A FEATURE]]*
 
-[[http://code.google.com/p/llbbsc/wiki/CT CT] | [http://code.google.com/p/llbbsc/wiki/CTInstall Installation] | [http://code.google.com/p/llbbsc/wiki/CTUsage Usage] | [http://code.google.com/p/llbbsc/wiki/CTCSSCustomization CSS Customization] | [http://code.google.com/p/llbbsc/wiki/CTTest Testing] | [http://code.google.com/p/llbbsc/wiki/CTThemeModification Theme Modification]]
+[[http://code.google.com/p/llbbsc/wiki/CT CT] | [http://code.google.com/p/llbbsc/wiki/CTInstall Installation] | 
+[http://code.google.com/p/llbbsc/wiki/CTUpgrade Upgrading] | 
+[http://code.google.com/p/llbbsc/wiki/CTUsage Usage] | [http://code.google.com/p/llbbsc/wiki/CTCSSCustomization CSS Customization] | [http://code.google.com/p/llbbsc/wiki/CTTest Testing] | [http://code.google.com/p/llbbsc/wiki/CTThemeModification Theme Modification]]
 
 Nowadays, more and more bloggers write informative articles. By this plugin, those articles could be referred to in a formal citation.
 
