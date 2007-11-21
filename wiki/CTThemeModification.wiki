@@ -1,6 +1,8 @@
 #summary How to modify your theme if it not work with CT by default
 #labels P-CT
-[[http://code.google.com/p/llbbsc/wiki/CT CT] | [http://code.google.com/p/llbbsc/wiki/CTInstall Installation] | [http://code.google.com/p/llbbsc/wiki/CTUsage Usage] | [http://code.google.com/p/llbbsc/wiki/CTCSSCustomization CSS Customization] | [http://code.google.com/p/llbbsc/wiki/CTTest Testing] | [http://code.google.com/p/llbbsc/wiki/CTThemeModification Theme Modification]]
+[[http://code.google.com/p/llbbsc/wiki/CT CT] | [http://code.google.com/p/llbbsc/wiki/CTInstall Installation] | 
+[http://code.google.com/p/llbbsc/wiki/CTUpgrade Upgrading] | 
+[http://code.google.com/p/llbbsc/wiki/CTUsage Usage] | [http://code.google.com/p/llbbsc/wiki/CTCSSCustomization CSS Customization] | [http://code.google.com/p/llbbsc/wiki/CTTest Testing] | [http://code.google.com/p/llbbsc/wiki/CTThemeModification Theme Modification]]
 
 = Introduction =
 
