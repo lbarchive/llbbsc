@@ -82,7 +82,7 @@ endif;
 // Send the Activation Code
 function ERSendActCode($userID) {
     $actCode = bb_get_usermeta($userID, 'act_code');
-    $message = __("Please click the following link to activate your account: \n%1\$sbb-activate.php?user_login=%2\$s&act_code=%3\$s\n\nIf the link above didn't work, please navigate to LINK and enter your login name and this activation code: CODE\n\n%4\$s\n%5\$s", ER_DOMAIN);
+    $message = __("Please click the following link to activate your account: \n%1\$sbb-activate.php?user_login=%2\$s&act_code=%3\$s\n\nIf the link above didn't work, please navigate to %1\$sbb-activate.php and enter your login name and this activation code: %3\$s\n\n%4\$s\n%5\$s", ER_DOMAIN);
     if (false === bb_mail(
         bb_get_user_email($userID),
         bb_get_option('name') . ': ' . __('Your activation code', ER_DOMAIN),
