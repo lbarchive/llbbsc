@@ -46,12 +46,10 @@ if (!bb_is_user_logged_in()) {
 	$user_exists = $user !== false;
 	$re = $redirect_to = attribute_escape($re);
 	if ($_POST['do'] == 'GoLogIn') {
-		error_log('Load login.php');
 		$user_exists = true;
 		bb_load_template('login.php', array('user_exists', 'user_login', 'redirect_to', 're'));
 		}
 	else {
-		error_log('Load activate.php');
 		bb_load_template('activate.php', array('user_exists', 'userActivated', 'user_login', 'redirect_to', 're'));
 		}
 	exit;
