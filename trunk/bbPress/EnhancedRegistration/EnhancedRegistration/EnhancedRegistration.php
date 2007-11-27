@@ -4,7 +4,7 @@ Plugin Name: Enhanced Registration
 Description: Enhancing bbPress Registration
 Author: Yu-Jie Lin
 Author URI: http://www.livibetter.com/
-Version: 0.0.0.1
+Version: 0.0.0.2
 Creation Date: 2007-11-25T12:41:56+0800
 */
 /*
@@ -23,6 +23,8 @@ Creation Date: 2007-11-25T12:41:56+0800
  * You should have received a copy of the GNU General Public License along
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+global $ERRuntimInformation;
 
 define('ER_DOMAIN', 'EnhancedRegistration');
 load_plugin_textdomain(ER_DOMAIN, dirname(__FILE__) . '/locale');
@@ -48,11 +50,8 @@ function ERActivate($userLogin, $actCode) {
 	return false;
 	}
 
-if (function_exists('bb_check_login')):
-	global $ER_ERROR;
-	$ER_ERROR = 'Unable to override bb_check_login. The function has been implemented. Please deactivate other plugins.';
-	error_log('bbPress ER: ' . $ER_ERROR);
-else:
+// Overrides bb_check_login
+if ($ERRuntimeInformation['overrided_bb_check_login'] = !function_exists('bb_check_login')):
 function bb_check_login($user, $pass, $already_md5 = false) {
 	// Original bb_check_login function
 	function Original_bb_check_login($user, $pass, $already_md5 = false) {
@@ -77,6 +76,8 @@ function bb_check_login($user, $pass, $already_md5 = false) {
 	wp_redirect(bb_get_option('uri') . 'bb-activate.php');
 	exit;
 	}
+else:
+	error_log('bbPress ER: ' . 'Unable to override bb_check_login. The function has been implemented. Please deactivate other plugins.');
 endif;
 
 // Send the Activation Code
@@ -113,9 +114,119 @@ function ERAdminMenu() {
 
 include_once('OptionsPage.php');
 
+function ERSendReport() {
+	$options = bb_get_option('EROptions');
+	// TODO BUG May not send report if the forum has really few visitors
+	$doSend = false;	
+	if ($options['sendReport'] == 'hourly')
+		$doSend = gmdate('G', time()) != gmdate('G', $options['lastSent']);
+	if ($options['sendReport'] == 'daily')
+		$doSend = gmdate('j', time()) != gmdate('j', $options['lastSent']);
+	
+	if (!$doSend)
+		return;
+	// Check any report is available to be sent
+	$report = '';
+	if ($options['deletedUnactivatedIDs']) {
+		$report .= "Deleted unactivated users =====\n";
+		foreach ($options['deletedUnactivatedIDs'] as $t => $mappedIDLogin)
+			$report .= sprintf("%1\$s:\n  %2\$s\n\n", gmdate('r', $t), implode("\n  ", array_map(create_function('$id, $userLogin',
+				'return "$id: $userLogin";'), array_keys($mappedIDLogin), array_values($mappedIDLogin))));
+		}
+	if (empty($report))
+		return;
+	// Send the report
+    $message = __("The report was generated at %1\$s. All times are in UTC.\n\n%2\$s", ER_DOMAIN);
+    $result = bb_mail(
+        bb_get_option('admin_email'),
+        bb_get_option('name') . ": Your {$options[sendReport]} report",
+        sprintf($message, gmdate('r', time()), $report));
+
+	if ($result) {
+		// Seems send successfully, then Clean up
+		$options['lastSent'] = time();
+		unset($options['deletedUnactivatedIDs']);
+		bb_update_option('EROptions', $options);
+		}
+	else
+        error_log('bbPress ER: Failed to send report!');
+	return $result;
+	}
+
+/* Options
+======================================== */
+
+function ERGetDefaultOptions() {
+	return array(
+		'autoDeleteUnactivatedOver' => 0,
+		'sendReport' => 'daily'
+		);
+	}
+
+function ERUpgradeOptions() {
+	$options = bb_get_option('EROptions');
+	if (empty($options)) {
+		$options = ERGetDefaultOptions();
+		$options['version'] = '0.0.0.2';
+		}
+	bb_update_option('EROptions', $options);
+	return $options;
+	}
+
+/* Functions
+======================================== */
+
+function ERGetUnactivatedUserCount() {
+	global $bbdb;
+	return $bbdb->query("SELECT $bbdb->users.ID FROM $bbdb->users, $bbdb->usermeta WHERE $bbdb->users.ID = $bbdb->usermeta.user_id AND $bbdb->usermeta.meta_key = 'act_code'");
+	}
+
+function ERDeleteUnactivated($over) {
+	$over = floor($over);
+	if ($over <= 0)
+		return;
+	global $bbdb;
+	$IDs = $bbdb->get_col("SELECT $bbdb->users.ID, $bbdb->users.user_login FROM $bbdb->users, $bbdb->usermeta WHERE $bbdb->users.ID = $bbdb->usermeta.user_id AND $bbdb->usermeta.meta_key = 'act_code' AND DATE_ADD('1970-01-01', INTERVAL UNIX_TIMESTAMP() SECOND) >= DATE_ADD($bbdb->users.user_registered, INTERVAL $over HOUR)");
+	
+	if ($IDs) {
+		$mapped = array_combine($IDs, $bbdb->get_col(null, 1));
+		foreach ($IDs as $ID)
+			bb_delete_user($ID);
+		// Put these IDs into log
+		$options = bb_get_option('EROptions');
+		$options['deletedUnactivatedCount'] += sizeof($IDs);
+		if (in_array($options['sendReport'], array('hourly', 'daily'))) {
+			if (!is_array($options['deletedUnactivatedIDs']))
+				$options['deletedUnactivatedIDs'] = array();
+			$options['deletedUnactivatedIDs'] = array_merge($options['deletedUnactivatedIDs'], array(time() . '.0' => $mapped));
+			}
+		else
+			unset($options['deletedUnactivatedIDs']);
+		bb_update_option('EROptions', $options);
+		}
+	return $mapped;
+	}
+
+// Initializes ER and auto-deletion
+function ERHook_bb_init() {
+	global $ERRuntimeInformation;
+	$options = ERUpgradeOptions();
+	// Process auto tasks
+	if (time() >= $options['lastRun'] + 3600) {
+		$options['lastRun'] = time();
+		bb_update_option('EROptions', $options);
+
+		// Unactivated Users
+		if (($over = $options['autoDeleteUnactivatedOver']) > 0)
+			ERDeleteUnactivated($over);
+		}
+	ERSendReport();
+	}
+
 /* Hooks
 ======================================== */
 
 add_action('bb_admin_menu_generator', 'ERAdminMenu');
 add_action('register_user', 'ERHook_register_user');
+add_action('bb_init', 'ERHook_bb_init');
 ?>

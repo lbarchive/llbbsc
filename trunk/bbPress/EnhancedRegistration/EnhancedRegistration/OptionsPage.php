@@ -23,23 +23,42 @@
  */
 
 function EROptions() {
-	global $ER_ERROR;
-	if (isset($ER_ERROR))
-		echo '<div class="error"><p>', $ER_ERROR, '</p></div>';
-	if (isset($_POST['UserManage'])) {
+	global $ERRuntimeInformation;
+	if ($ERRuntimeInformation['overrided_bb_check_login'] !== true)
+		echo '<div class="error"><p>' . __('Unable to override bb_check_login. The function has been implemented. Please deactivate other plugins.', ER_DOMAIN) . '</p></div>';
+	
+	$options = bb_get_option('EROptions');
+
+	if (isset($_POST['ManageUser'])) {
 		switch($_POST['do']) {
 		case 'delete':
 			// Check number
-			$hours = floor($_POST['due']);
-			if ($hours > 0) {
-				global $bbdb;
-	        	$IDs = $bbdb->get_col("SELECT $bbdb->users.ID FROM $bbdb->users, $bbdb->usermeta WHERE $bbdb->users.ID = $bbdb->usermeta.user_id AND $bbdb->usermeta.meta_key = 'act_code' AND DATE_ADD('1970-01-01', INTERVAL UNIX_TIMESTAMP() SECOND) >= DATE_ADD($bbdb->users.user_registered, INTERVAL $hours HOUR)");
-				foreach ($IDs as $ID)
-					bb_delete_user($ID);
-				echo '<div class="updated"><p>', sizeof($IDs),  ' user(s) have been deleted!</p></div>';
-				}
+			$hours = floor($_POST['over']);
+			if ($hours > 0)
+				echo '<div class="updated"><p>', sizeof(ERDeleteUnactivated($hours)),  ' user(s) have been deleted!</p></div>';
 			else
-				echo '<div class="updated"><p>', $hours, ' is not a valid number for deleting!</p></div>';	
+				echo '<div class="error"><p>', $hours, ' is not a valid number for deleting!</p></div>';	
+			break;
+			}
+		}
+	elseif (isset($_POST['UpdateOptions'])){
+		switch($_POST['UpdateOptions']) {
+		case __('Save', ER_DOMAIN):
+			$newOptions = array();
+			$hours = floor($_POST['autoDeleteUnactivatedOver']);
+			if ($hours >= 0)
+				$newOptions['autoDeleteUnactivatedOver'] = $hours;
+			else
+				echo '<div class="error"><p>', $hours, ' is not a valid number for deleting!</p></div>';
+			$newOptions['sendReport'] = $_POST['sendReport'];
+			$options = array_merge($options, $newOptions);
+			bb_update_option('EROptions', $options);
+			echo '<div class="updated"><p>', __('Options have been updated!', ER_DOMAIN),  '</p></div>';
+			break;
+		case __('Reset', ER_DOMAIN):
+			$options = array_merge($options, ERGetDefaultOptions());
+			bb_update_option('EROptions', $options);
+			echo '<div class="updated"><p>' . __('Options have been reseted!', ER_DOMAIN) . '</p></div>';
 			break;
 			}
 		}
@@ -55,17 +74,72 @@ function EROptions() {
 		</ul>
 		</div>
 
+		<h3><?php _e('Statistics', ER_DOMAIN); ?></h3>
+		<div>
+			<table><tbody>
+				<tr>
+					<td><?php _e('Number of users have been deleted by using ER:', ER_DOMAIN); ?></td>
+					<td><?php echo (int) $options['deletedUnactivatedCount']; ?></td>
+				</tr>
+				<tr>
+					<td><?php _e('Number of users have not activated:', ER_DOMAIN); ?></td>
+					<td><?php echo ERGetUnactivatedUserCount(); ?></td>
+				</tr>
+				<tr>
+					<td><?php _e('Last time run auto tasks:', ER_DOMAIN); ?></td>
+					<td><?php echo (isset($options['lastRun'])) ? gmdate('r', $options['lastRun']) : 'Never'; ?></td>
+				</tr>
+				<tr>
+					<td><?php _e('Last time sent the report:', ER_DOMAIN); ?></td>
+					<td><?php echo (isset($options['lastSent'])) ? gmdate('r', $options['lastSent']) : 'Never'; ?></td>
+				</tr>	
+			</tbody></table>
+		</div>
+
 		<h3><?php _e('User Management', ER_DOMAIN); ?></h3>
 		<div>
+			<table><tbody>
+				<tr>
+					<td><?php _e("Delete users haven't activated over the specified hours since registered:", ER_DOMAIN); ?></td>
+					<td>
+						<form method="post" action="">
+							<input type="text" name="over" value="72" size="5"/>  <?php _e('(Positive integer number)', ER_DOMAIN); ?>
+							<input type="hidden" name="do" value="delete"/>
+							<input type="submit" name="ManageUser" value="<?php _e('Delete them &raquo;', ER_DOMAIN); ?>" style="font-weight:bold;"/>
+						</form>
+					</td>
+				</tr>
+			</tbody></table>
+		</div>
+
+		<h3><?php _e('Options', ER_DOMAIN); ?></h3>
+		<div>
 			<form method="post" action="">
-				<p>
-					Delete user haven't activated in <input type="text" name="due" value="72" size="5"/> hour(s)<small><?php _e('(Integer number only)', ER_DOMAIN); ?></small>
-					<input type="hidden" name="do" value="delete"/>
-					<input type="submit" name="UserManage" value="<?php _e('Delete them &raquo;', ER_DOMAIN); ?>" style="font-weight:bold;"/>
-					
-				</p>
+				<table><tbody>
+					<tr>
+						<td><?php _e('How many hours after registered that users have to activate their accounts, or will be deleted?', ER_DOMAIN); ?></td>
+						<td>
+							<input type="text" name="autoDeleteUnactivatedOver" value="<?php echo $options['autoDeleteUnactivatedOver']; ?>" size="5"/> <?php _e('Positive integer number, or 0 for disabling auto deletion.', ER_DOMAIN); ?>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="sendReport"><?php _e("How frequent should ER send reports to admin's email (assigned in config.php)?", ER_DOMAIN); ?></label></td>
+						<td>
+							<select name="sendReport" id="sendReport">
+								<option value=""><?php _e('Never', ER_DOMAIN); ?></option>
+								<option <?php if($options['sendReport']=='hourly') echo 'selected'; ?> value="hourly"><?php _e('Hourly', ER_DOMAIN); ?></option>
+								<option <?php if($options['sendReport']=='daily') echo 'selected'; ?> value="daily"><?php _e('Daily', ER_DOMAIN); ?></option>
+							</select>
+						</td>
+					</tr>
+				<tbody></table>
+				<div class="submit">
+					<input type="submit" name="UpdateOptions" value="<?php _e('Save', ER_DOMAIN); ?>" style="font-weight:bold;"/>
+					<input type="submit" name="UpdateOptions" value="<?php _e('Reset', ER_DOMAIN); ?>" style="font-weight:bold;"/>  
+				</div>
 			</form>
 		</div>
+
 <?php
 	}
 ?>
