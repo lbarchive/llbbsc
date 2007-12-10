@@ -1,4 +1,4 @@
-#summary Gravatar bbPress Plugin
+﻿#summary Gravatar bbPress Plugin
 #labels Featured,P-Gravatar
 *[[http://code.google.com/p/llbbsc/ HOME] | [http://groups.google.com/group/llbbsc GET SUPPORT] | [http://code.google.com/p/llbbsc/issues/list REPORT A BUG] | [http://code.google.com/p/llbbsc/issues/list REQUEST A FEATURE]]*
 
@@ -29,7 +29,7 @@ A simple plugin for Gravatar.
   * Display Name - Shows Display Name instead of Login name if available
   * Customize Size, Rating of avatar
   * Complete Deactivation - Removes options and data in usermeta.
-  * Translations (HelpTranslating)
+  * Translations (HelpTranslate)
     * zh_TW - Traditional Chinese
 
 =Download=
