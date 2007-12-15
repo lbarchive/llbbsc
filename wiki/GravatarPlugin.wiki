@@ -34,14 +34,4 @@ A simple plugin for Gravatar.
 
 =Download=
 
-* This is the temporary downloading method, because I am waiting for approval from bbPress Extend. Once I got it, I will move files onto it. *
-
-==Quick way==
-
-Go to [http://code.google.com/p/llbbsc/downloads/list?q=label:P-Gravatar Download] for a zipped file.
-
-==Subversion way==
-
-Trunk: `svn checkout http://llbbsc.googlecode.com/svn/trunk/bbPress/Gravatar/ Gravatar`
-
-Version 0.2: `svn export http://llbbsc.googlecode.com/svn/tags/bbPress/Gravatar/0.2 Gravatar`
+Please go to [http://bbpress.org/plugins/topic/73 bbPress Extend].
