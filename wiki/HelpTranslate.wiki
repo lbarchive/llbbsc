@@ -10,7 +10,7 @@ If you don't know how to translate using a .pot and you use Linux, please read [
 =Notes=
 
   * All communications should use [http://groups.google.com/group/llbbsc llbbsc Discussion Group].
-  * Contacting before translating.
+  * *Contacting before translating*.
 
 =General Tasks for Translators=
 
@@ -19,7 +19,7 @@ If you don't know how to translate using a .pot and you use Linux, please read [
     # Verifying in program, make sure nothing is broken by translation.
   # Providing you public personal information _(optional)_
     # Your Name - Real name or nickname.
-    # *Personal* Website - This would be listed in homepage of the program.
+    # *Personal* Website - This would be listed in homepage of the program. Note: I may not list your website.
   # Making a simple introduction page for program _(optional)_
     If you can make a simple page for the program in your web space, llbbsc's discussion group space or Google Pages, etc. That would be greatly appreciated. You don't need to make new just translated one, e.g. translating http://code.google.com/p/llbbsc/w/edit/OnThisDayWPPlugin for On this day WordPress plugin like [http://www.livibetter.com/blog/2007/11/05/%e6%ad%b7%e5%8f%b2%e4%b8%8a%e7%9a%84%e4%bb%8a%e5%a4%a9-wordpress-%e5%a4%96%e6%8e%9b/ this] in Traditional Chinese. You don't have to do this with PO translating at the same time. Just post a link in group when you done.
 
